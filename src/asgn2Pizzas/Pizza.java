@@ -2,6 +2,8 @@ package asgn2Pizzas;
 
 import java.time.LocalTime;
 
+import asgn2Exceptions.PizzaException;
+
 
 /**
  * An abstract class that represents pizzas sold at the Pizza Palace restaurant. 
@@ -13,6 +15,12 @@ import java.time.LocalTime;
  *
  */
 public abstract class Pizza  {
+	private int m_Quantity;
+	private LocalTime m_OrderTime;
+	private LocalTime m_DeliveryTime;
+	private String m_Type;
+	private double m_Price;
+	
 	
 	/**
 	 *  This class represents a pizza produced at the Pizza Palace restaurant.  A detailed description of the class's fields
@@ -33,6 +41,19 @@ public abstract class Pizza  {
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
 		// TO DO	
+		if(m_OrderTime.isBefore(LocalTime.of(19, 0, 0)) || (m_OrderTime.isAfter(LocalTime.of(23, 0, 0)))) {
+			throw new PizzaException();
+		} else if ((type.equals("DVC") == false) || (type.equals("DNC") == false) || (type.equals("PUC") == false)) {
+			throw new PizzaException();
+		} else if (quantity < 1 || quantity > 10) {
+			throw new PizzaException();
+		}
+		
+		m_Quantity = quantity;
+		m_OrderTime = orderTime;
+		m_DeliveryTime = deliveryTime;
+		m_Type = type;
+		m_Price = price;
 	}
 
 	/**
