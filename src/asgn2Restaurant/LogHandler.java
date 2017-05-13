@@ -1,8 +1,12 @@
 package asgn2Restaurant;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import asgn2Customers.Customer;
+import asgn2Customers.CustomerFactory;
 import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
@@ -19,7 +23,7 @@ import asgn2Pizzas.Pizza;
  */
 public class LogHandler {
 	
-
+	private static BufferedReader file;
 
 	/**
 	 * Returns an ArrayList of Customer objects from the information contained in the log file ordered as they appear in the log file.
@@ -29,8 +33,27 @@ public class LogHandler {
 	 * @throws LogHandlerException If there was a problem with the log file not related to the semantic errors above
 	 * 
 	 */
-	public static ArrayList<Customer> populateCustomerDataset(String filename) throws CustomerException, LogHandlerException{
-		// TO DO
+	public static ArrayList<Customer> populateCustomerDataset(String filename) throws CustomerException, LogHandlerException {
+        // not sure on this implementation method
+		try {
+			ArrayList<Customer> customer = new ArrayList<Customer>();
+	        file = new BufferedReader(new FileReader(filename));
+	        // create customer
+	        String line = file.readLine();
+	        String[] data = line.split(","); 
+	        String customerName = data[2];
+	        String customerMobile = data[3];
+	        String customerCode = data[4];
+	        int customerXLocation = Integer.parseInt(data[5]);
+	        int customerYLocation = Integer.parseInt(data[6]);
+	        customer.add(CustomerFactory.getCustomer(customerCode, customerName, customerMobile, customerXLocation, customerYLocation));
+	        
+			return customer;
+		} catch(IOException exception) {
+        	System.out.println(exception.getMessage());
+        	exception.printStackTrace();
+			throw new LogHandlerException();
+		}
 	}		
 
 	/**
