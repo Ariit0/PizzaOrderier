@@ -28,6 +28,21 @@ public class CustomerFactory {
 	 * @throws CustomerException if the customerCode is not one of the three valid codes listed in Section 5.3 of the Assignment Specification. 
 	 */
 	public static Customer getCustomer(String customerCode, String name, String mobileNumber, int locationX,  int locationY) throws CustomerException{
-		// TO DO
+		if (!customerCode.equals("PUC")
+			|| !customerCode.equals("DNC")
+			|| !customerCode.equals("DVC")) {
+			
+			throw new CustomerException();
+		} 
+		
+		if (customerCode.equals("PUC")) {
+			return new PickUpCustomer(name, mobileNumber, locationX, locationY);
+		} else if (customerCode.equals("DNC")) {
+			return new DroneDeliveryCustomer(name, mobileNumber, locationX, locationY);
+		} else if (customerCode.equals("DVC")) {
+			return new DriverDeliveryCustomer(name, mobileNumber, locationX, locationY);
+		}
+		
+		return null;
 	}
 }
