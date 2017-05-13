@@ -21,7 +21,6 @@ public abstract class Pizza  {
 	private String m_Type;
 	private double m_Price;
 	
-	
 	/**
 	 *  This class represents a pizza produced at the Pizza Palace restaurant.  A detailed description of the class's fields
 	 *  and parameters is provided in the Assignment Specification, in particular in Section 5.1. 
@@ -79,7 +78,7 @@ public abstract class Pizza  {
 	 * @return The amount that an individual pizza is sold to the customer.
 	 */
 	public final double getPricePerPizza(){
-		// TO DO
+		return m_Price;
 	}
 
 	/**
