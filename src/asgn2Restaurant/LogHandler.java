@@ -77,7 +77,6 @@ public class LogHandler {
 		LocalTime deliveryTime;
 		String pizzaCode;
 		int quantity;
-		
 		try {
 			orderTime = LocalTime.parse(data[0]);
 			deliveryTime = LocalTime.parse(data[1]);
@@ -87,7 +86,13 @@ public class LogHandler {
 			throw new LogHandlerException();
 		}
 		
-		return PizzaFactory.getPizza(pizzaCode, quantity, orderTime, deliveryTime);	
+		Pizza pizza;
+		try {
+			pizza = PizzaFactory.getPizza(pizzaCode, quantity, orderTime, deliveryTime);	
+		} catch (PizzaException e){
+			throw e;
+		}
+		return pizza;
 	}
 
 }
