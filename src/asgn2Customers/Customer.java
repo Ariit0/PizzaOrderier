@@ -17,7 +17,7 @@ public abstract class Customer {
 	private int m_LocationX;
 	private int m_LocationY;
 	private String m_Type;
-
+	
 	/**
 	 *  This class represents a customer of the Pizza Palace restaurant.  A detailed description of the class's fields
 	 *  and parameters is provided in the Assignment Specification, in particular in Section 5.2. 
@@ -37,23 +37,77 @@ public abstract class Customer {
 	 */
 	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException {
 		/* 
-		 * Parameter 'type' is the customer-code which specifies 
-		 * the customer order type (PUC, DNC, DVC; abbreviations are elaborated in the specification).
+		 * Conditions to check if the supplied parameters are invalid
+		 * 
+		 * Should check for incorrect use of whitespace e.g. ("     firstname    lastname ")
+		 * however not part of API specification
 		 */
-		if (!name.matches("[a-zA-Z]+") 
-			|| !mobileNumber.matches("^[0-9]*$") 
-			|| mobileNumber.length() < 10
-			|| mobileNumber.length() > 10
-			|| type.length() < 3
-			|| type.length() > 3) {
+		if (name == null
+			|| name.trim().isEmpty() // checks for whitespaces
+			|| name.length() > 20
+			|| name.isEmpty()
+			|| !name.matches("[a-zA-Z]+") // regex ensuring name should be letters only
+			) { 
 
 			throw new CustomerException();
 		}
+
+		if (mobileNumber == null
+			|| mobileNumber.trim().isEmpty() // assumed that mobile number cannot be whitespace only (not specified in api)
+			|| mobileNumber.charAt(0) != '0' // mobilenumbers must start at 0
+			|| !mobileNumber.matches("[0-9]+") // regex ensuring mobile number values should be ints only
+			|| mobileNumber.length() < 10
+			|| mobileNumber.length() > 10) {
+			
+			throw new CustomerException();
+		}
+		
+		if (manhattenDistance(locationX, locationY) > 10
+			|| manhattenDistance(locationX, locationY) < -10
+			|| euclideanDistance(locationX, locationY) > 10
+			|| euclideanDistance(locationX, locationY) < -10) {
+			
+			throw new CustomerException();
+		}
+		
+		if (type.equals("Pick Up") && locationX != 0 && locationY != 0 // to pick up pizza, location is always 0,0. 
+			|| !type.equals("Pick Up")
+			|| !type.equals("Driver Delivery")
+			|| !type.equals("Drone Delivery")
+			|| type.equals("Driver Delivery") && locationX == 0 && locationY == 0 // will not deliver if the customer is at the restaurant 
+			|| type.equals("Drone Delivery") && locationX == 0 && locationY == 0 // will not deliver if the customer is at the restaurant
+			) {
+			
+			throw new CustomerException();
+		}
+		
 		this.m_Name = name;
 		this.m_MobileNumber = mobileNumber;
 		this.m_LocationX = locationX;
 		this.m_LocationY = locationY;
 		this.m_Type = type;
+	}
+	
+	/**
+	 * Returns the euclidean distance given x and y coordinates
+	 * @param locationX - The customer x location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
+	 * @param locationY - The customer y location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
+	 * @return Euclidean Distance from restaurant
+	 */
+	private double euclideanDistance(int locationX, int locationY) {
+		double distance = Math.sqrt(Math.pow(locationX, 2) + Math.pow(locationY, 2));
+		return distance;
+	}
+	
+	/**
+	 * Returns the manhatten distance given x and y coordinates
+	 * @param locationX - The customer x location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
+	 * @param locationY - The customer y location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
+	 * @return Manhatten Distance from restaurant
+	 */
+	private int manhattenDistance(int locationX, int locationY) {
+		int distance = (locationX + locationY);
+		return distance; 
 	}
 	
 	/**
@@ -124,5 +178,4 @@ public abstract class Customer {
 			(this.getLocationY() == otherCustomer.getLocationY()) && 
 			(this.getCustomerType().equals(otherCustomer.getCustomerType())) );			
 	}
-
 }
