@@ -37,7 +37,7 @@ public class PickUpCustomer extends Customer {
 	 */
 	@Override
 	public double getDeliveryDistance() {
-		// TO DO
+		return 0.0;
 	}
 
 }
