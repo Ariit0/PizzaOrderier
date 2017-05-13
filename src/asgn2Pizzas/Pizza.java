@@ -42,7 +42,6 @@ public abstract class Pizza  {
 	 * 
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
-		// TO DO	
 		if(orderTime.isBefore(LocalTime.of(19, 0, 0)) || (deliveryTime.isAfter(LocalTime.of(23, 0, 0)))) {
 			throw new PizzaException();
 		} else if (type.equals("PZM") == false || type.equals("PZV") == false || type.equals("PZL") == false){
@@ -77,7 +76,6 @@ public abstract class Pizza  {
 	 * @return The amount that an individual pizza costs to make.
 	 */
 	public final double getCostPerPizza(){
-		calculateCostPerPizza();
 		return m_Cost;
 	}
 
@@ -94,7 +92,7 @@ public abstract class Pizza  {
 	 * @return The amount that the entire order costs to make, taking into account the type and quantity of pizzas. 
 	 */
 	public final double getOrderCost(){
-		// TO DO
+		return m_Cost * m_Quantity;
 	}
 	
 	/**
