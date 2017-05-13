@@ -50,18 +50,18 @@ public abstract class Pizza  {
 		
 		m_Toppings = new ArrayList<PizzaTopping>();
 		switch(type){
-			case "Margherita":
+			case "PZM":
 				m_Toppings.add(PizzaTopping.TOMATO);
 				m_Toppings.add(PizzaTopping.CHEESE);
 				break;
-			case "Vegetarian":
+			case "PZV":
 				m_Toppings.add(PizzaTopping.TOMATO);
 				m_Toppings.add(PizzaTopping.CHEESE);
 				m_Toppings.add(PizzaTopping.EGGPLANT);
 				m_Toppings.add(PizzaTopping.MUSHROOM);
 				m_Toppings.add(PizzaTopping.CAPSICUM);
 				break;
-			case "Meat Lovers":
+			case "PZL":
 				m_Toppings.add(PizzaTopping.TOMATO);
 				m_Toppings.add(PizzaTopping.CHEESE);
 				m_Toppings.add(PizzaTopping.BACON);
@@ -153,7 +153,14 @@ public abstract class Pizza  {
 	 * @return A human understandable description of the Pizza's type.
 	 */
 	public final String getPizzaType(){
-		// TO DO
+		switch(m_Type){
+			case "PZM":
+				return "Margherita";
+			case "PZV":
+				return "Vegetarian";
+			default:
+				return "Meat Lovers";
+		}
 	}
 
 
