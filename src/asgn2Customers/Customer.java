@@ -12,6 +12,11 @@ import asgn2Exceptions.CustomerException;
 */
 public abstract class Customer {
 
+	private String m_Name;
+	private String m_MobileNumber;
+	private int m_locationX;
+	private int m_locationY;
+	private String m_Type;
 
 	/**
 	 *  This class represents a customer of the Pizza Palace restaurant.  A detailed description of the class's fields
@@ -30,8 +35,25 @@ public abstract class Customer {
 	 * @throws CustomerException if supplied parameters are invalid 
 	 * 
 	 */
-	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException{
-		// TO DO
+	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException {
+		/* 
+		 * It is assumed that the parameter 'type' is the customer-code which 
+		 * specifies the customer order type (PUC, DNC, DVC; abbreviations are elaborated in the specification).
+		 */
+		if (!name.matches("[a-zA-Z]+") 
+			|| !mobileNumber.matches("^[0-9]*$") 
+			|| mobileNumber.length() < 10
+			|| mobileNumber.length() > 10
+			|| type.length() < 3
+			|| type.length() > 3) {
+
+			throw new CustomerException();
+		}
+		this.m_Name = name;
+		this.m_MobileNumber = mobileNumber;
+		this.m_locationX = locationX;
+		this.m_locationY = locationY;
+		this.m_Type = type;
 	}
 	
 	/**
