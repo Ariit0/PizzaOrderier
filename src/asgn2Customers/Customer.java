@@ -95,8 +95,7 @@ public abstract class Customer {
 	 * @return Euclidean Distance from restaurant
 	 */
 	private double euclideanDistance(int locationX, int locationY) {
-		double distance = Math.sqrt(Math.pow(locationX, 2) + Math.pow(locationY, 2));
-		return distance;
+		return Math.sqrt(Math.pow(locationX, 2) + Math.pow(locationY, 2));
 	}
 	
 	/**
@@ -106,8 +105,7 @@ public abstract class Customer {
 	 * @return Manhatten Distance from restaurant
 	 */
 	private int manhattenDistance(int locationX, int locationY) {
-		int distance = (locationX + locationY);
-		return distance; 
+		return (locationX + locationY);
 	}
 	
 	/**
