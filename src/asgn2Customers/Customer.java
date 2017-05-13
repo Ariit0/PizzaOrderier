@@ -14,8 +14,8 @@ public abstract class Customer {
 
 	private String m_Name;
 	private String m_MobileNumber;
-	private int m_locationX;
-	private int m_locationY;
+	private int m_LocationX;
+	private int m_LocationY;
 	private String m_Type;
 
 	/**
@@ -37,8 +37,8 @@ public abstract class Customer {
 	 */
 	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException {
 		/* 
-		 * It is assumed that the parameter 'type' is the customer-code which 
-		 * specifies the customer order type (PUC, DNC, DVC; abbreviations are elaborated in the specification).
+		 * Parameter 'type' is the customer-code which specifies 
+		 * the customer order type (PUC, DNC, DVC; abbreviations are elaborated in the specification).
 		 */
 		if (!name.matches("[a-zA-Z]+") 
 			|| !mobileNumber.matches("^[0-9]*$") 
@@ -51,8 +51,8 @@ public abstract class Customer {
 		}
 		this.m_Name = name;
 		this.m_MobileNumber = mobileNumber;
-		this.m_locationX = locationX;
-		this.m_locationY = locationY;
+		this.m_LocationX = locationX;
+		this.m_LocationY = locationY;
 		this.m_Type = type;
 	}
 	
@@ -61,7 +61,7 @@ public abstract class Customer {
 	 * @return The Customer's name.
 	 */
 	public final String getName(){
-		// TO DO
+		return m_Name;
 	}
 	
 	/**
@@ -69,7 +69,7 @@ public abstract class Customer {
 	 * @return The Customer's mobile number.
 	 */
 	public final String getMobileNumber(){
-		// TO DO
+		return m_MobileNumber;
 	}
 
 	/**
@@ -78,7 +78,7 @@ public abstract class Customer {
 	 * @return A human understandable description of the Customer's type.
 	 */
 	public final String getCustomerType(){
-		// TO DO
+		return m_Type;
 	}
 	
 	/**
@@ -87,7 +87,7 @@ public abstract class Customer {
 	 * @return The Customer's X location
 	 */
 	public final int getLocationX(){
-		// TO DO
+		return m_LocationX;
 	}
 
 	/**
@@ -96,7 +96,7 @@ public abstract class Customer {
 	 * @return The Customer's Y location
 	 */
 	public final int getLocationY(){
-		// TO DO
+		return m_LocationY;
 	}
 
 	/**
@@ -106,8 +106,6 @@ public abstract class Customer {
 	 */
 	public abstract double getDeliveryDistance();
 
-	
-	
 	/**
 	 * Compares *this* Customer object with an instance of an *other* Customer object and returns true if  
 	 * if the two objects are equivalent, that is, if the values exposed by public methods are equal.
