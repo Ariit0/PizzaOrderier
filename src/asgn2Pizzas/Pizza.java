@@ -21,6 +21,7 @@ public abstract class Pizza  {
 	private LocalTime m_DeliveryTime;
 	private String m_Type;
 	private double m_Price;
+	private double m_Cost;
 	protected ArrayList<PizzaTopping> m_Toppings;
 	
 	/**
@@ -65,7 +66,10 @@ public abstract class Pizza  {
 	 * <P> POST: The cost field is set to sum of the Pizzas's toppings
 	 */
 	public final void calculateCostPerPizza(){
-		// TO DO
+		m_Cost = 0;
+		for(PizzaTopping topping : m_Toppings){
+			m_Cost += topping.getCost();
+		}
 	}
 	
 	/**
