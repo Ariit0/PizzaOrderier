@@ -44,33 +44,13 @@ public abstract class Pizza  {
 		// TO DO	
 		if(m_OrderTime.isBefore(LocalTime.of(19, 0, 0)) || (m_OrderTime.isAfter(LocalTime.of(23, 0, 0)))) {
 			throw new PizzaException();
+		} else if (type.equals("PZM") == false || type.equals("PZV") == false || type.equals("PZL") == false){
+			throw new PizzaException();
 		} else if (quantity < 1 || quantity > 10) {
 			throw new PizzaException();
 		}
 		
 		m_Toppings = new ArrayList<PizzaTopping>();
-		switch(type){
-			case "PZM":
-				m_Toppings.add(PizzaTopping.TOMATO);
-				m_Toppings.add(PizzaTopping.CHEESE);
-				break;
-			case "PZV":
-				m_Toppings.add(PizzaTopping.TOMATO);
-				m_Toppings.add(PizzaTopping.CHEESE);
-				m_Toppings.add(PizzaTopping.EGGPLANT);
-				m_Toppings.add(PizzaTopping.MUSHROOM);
-				m_Toppings.add(PizzaTopping.CAPSICUM);
-				break;
-			case "PZL":
-				m_Toppings.add(PizzaTopping.TOMATO);
-				m_Toppings.add(PizzaTopping.CHEESE);
-				m_Toppings.add(PizzaTopping.BACON);
-				m_Toppings.add(PizzaTopping.PEPPERONI);
-				m_Toppings.add(PizzaTopping.SALAMI);
-			default: 
-				throw new PizzaException();
-		}
-		
 		m_Quantity = quantity;
 		m_OrderTime = orderTime;
 		m_DeliveryTime = deliveryTime;
