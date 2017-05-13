@@ -44,8 +44,6 @@ public abstract class Pizza  {
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
 		if(orderTime.isBefore(LocalTime.of(19, 0, 0)) || (deliveryTime.isAfter(LocalTime.of(23, 0, 0)))) {
 			throw new PizzaException();
-		} else if (type.equals("PZM") == false || type.equals("PZV") == false || type.equals("PZL") == false){
-			throw new PizzaException();
 		} else if (quantity < 1 || quantity > 10) {
 			throw new PizzaException();
 		}
