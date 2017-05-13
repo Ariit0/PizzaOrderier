@@ -40,5 +40,4 @@ public class MargheritaPizza extends Pizza {
 		m_Toppings.add(PizzaTopping.CHEESE);
 		calculateCostPerPizza();
 	}
-
 }
