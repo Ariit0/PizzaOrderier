@@ -1,12 +1,13 @@
 package asgn2Restaurant;
 
-
+import java.time.LocalTime;
 import java.util.ArrayList;
 import asgn2Customers.Customer;
 import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.Pizza;
+import asgn2Pizzas.PizzaFactory;
 
 /**
  *
@@ -67,7 +68,26 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Pizza createPizza(String line) throws PizzaException, LogHandlerException{
-		// TO DO		
+		String[] data = line.split(",");
+		if(data.length != 9){
+			throw new LogHandlerException();
+		}
+		
+		LocalTime orderTime;
+		LocalTime deliveryTime;
+		String pizzaCode;
+		int quantity;
+		
+		try {
+			orderTime = LocalTime.parse(data[0]);
+			deliveryTime = LocalTime.parse(data[1]);
+			pizzaCode = data[7];
+			quantity = Integer.parseInt(data[8]);
+		} catch (Exception e) {
+			throw new LogHandlerException();
+		}
+		
+		return PizzaFactory.getPizza(pizzaCode, quantity, orderTime, deliveryTime);	
 	}
 
 }
