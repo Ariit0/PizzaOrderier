@@ -1,7 +1,12 @@
 package asgn2Restaurant;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import asgn2Customers.Customer;
 import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
@@ -43,7 +48,24 @@ public class LogHandler {
 	 * 
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
-		// TO DO
+		ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
+		
+        try {
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			String line = br.readLine();
+			while(!line.isEmpty()){
+				pizzas.add(createPizza(line));
+				line = br.readLine();
+			}
+		} catch (PizzaException e) {
+			throw e;
+		} catch (LogHandlerException e){
+			throw e;
+		} catch (Exception e){
+			throw new LogHandlerException();
+		}
+        
+        return pizzas;
 	}		
 
 	
@@ -81,18 +103,14 @@ public class LogHandler {
 			orderTime = LocalTime.parse(data[0]);
 			deliveryTime = LocalTime.parse(data[1]);
 			pizzaCode = data[7];
-			quantity = Integer.parseInt(data[8]);
-		} catch (Exception e) {
-			throw new LogHandlerException();
-		}
-		
-		Pizza pizza;
-		try {
-			pizza = PizzaFactory.getPizza(pizzaCode, quantity, orderTime, deliveryTime);	
-		} catch (PizzaException e){
+			quantity = Integer.parseInt(data[8]);	
+			
+			return PizzaFactory.getPizza(pizzaCode, quantity, orderTime, deliveryTime);
+		} catch (PizzaException e) {
 			throw e;
-		}
-		return pizza;
+		} catch (Exception e){
+			throw new LogHandlerException();
+		}	
 	}
 
 }
