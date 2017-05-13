@@ -100,7 +100,7 @@ public abstract class Pizza  {
 	 * @return The amount that the entire order is sold to the customer, taking into account the type and quantity of pizzas. 
 	 */
 	public final double getOrderPrice(){
-		// TO DO
+		return m_Price * m_Quantity;
 	}
 	
 	
@@ -146,7 +146,6 @@ public abstract class Pizza  {
 		}
 	}
 
-
 	/**
 	 * Compares *this* Pizza object with an instance of an *other* Pizza object and returns true if  
 	 * if the two objects are equivalent, that is, if the values exposed by public methods are equal.
@@ -168,6 +167,4 @@ public abstract class Pizza  {
 			(this.getPricePerPizza()) == (otherPizza.getPricePerPizza()) &&
 			(this.getQuantity()) == (otherPizza.getQuantity()));
 	}
-
-	
 }
