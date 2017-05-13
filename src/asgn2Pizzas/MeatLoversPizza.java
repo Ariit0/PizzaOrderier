@@ -32,7 +32,12 @@ public class MeatLoversPizza extends Pizza {
 	 *
 	 */
 	public MeatLoversPizza(int quantity, LocalTime orderTime, LocalTime deliveryTime) throws PizzaException {
-		// TO DO
+		super(quantity, orderTime, deliveryTime, "PZL", 12);
+		m_Toppings.add(PizzaTopping.TOMATO);
+		m_Toppings.add(PizzaTopping.CHEESE);
+		m_Toppings.add(PizzaTopping.BACON);
+		m_Toppings.add(PizzaTopping.PEPPERONI);
+		m_Toppings.add(PizzaTopping.SALAMI);
+		calculateCostPerPizza();
 	}
-
 }
