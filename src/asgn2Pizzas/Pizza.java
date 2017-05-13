@@ -1,6 +1,7 @@
 package asgn2Pizzas;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import asgn2Exceptions.PizzaException;
 
@@ -20,6 +21,7 @@ public abstract class Pizza  {
 	private LocalTime m_DeliveryTime;
 	private String m_Type;
 	private double m_Price;
+	private ArrayList<PizzaTopping> m_Toppings;
 	
 	/**
 	 *  This class represents a pizza produced at the Pizza Palace restaurant.  A detailed description of the class's fields
@@ -42,10 +44,31 @@ public abstract class Pizza  {
 		// TO DO	
 		if(m_OrderTime.isBefore(LocalTime.of(19, 0, 0)) || (m_OrderTime.isAfter(LocalTime.of(23, 0, 0)))) {
 			throw new PizzaException();
-		} else if ((type.equals("DVC") == false) || (type.equals("DNC") == false) || (type.equals("PUC") == false)) {
-			throw new PizzaException();
 		} else if (quantity < 1 || quantity > 10) {
 			throw new PizzaException();
+		}
+		
+		m_Toppings = new ArrayList<PizzaTopping>();
+		switch(type){
+			case "Margherita":
+				m_Toppings.add(PizzaTopping.TOMATO);
+				m_Toppings.add(PizzaTopping.CHEESE);
+				break;
+			case "Vegetarian":
+				m_Toppings.add(PizzaTopping.TOMATO);
+				m_Toppings.add(PizzaTopping.CHEESE);
+				m_Toppings.add(PizzaTopping.EGGPLANT);
+				m_Toppings.add(PizzaTopping.MUSHROOM);
+				m_Toppings.add(PizzaTopping.CAPSICUM);
+				break;
+			case "Meat Lovers":
+				m_Toppings.add(PizzaTopping.TOMATO);
+				m_Toppings.add(PizzaTopping.CHEESE);
+				m_Toppings.add(PizzaTopping.BACON);
+				m_Toppings.add(PizzaTopping.PEPPERONI);
+				m_Toppings.add(PizzaTopping.SALAMI);
+			default: 
+				throw new PizzaException();
 		}
 		
 		m_Quantity = quantity;
@@ -113,7 +136,7 @@ public abstract class Pizza  {
 	 * @return Returns  true if the instance of Pizza contains the specified topping and false otherwise.
 	 */
 	public final boolean containsTopping(PizzaTopping topping){
-		// TO DO
+		return m_Toppings.contains(topping);
 	}
 	
 	/**
