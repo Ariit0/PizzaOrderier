@@ -16,11 +16,11 @@ import asgn2Exceptions.PizzaException;
  *
  */
 public abstract class Pizza  {
-	private int m_Quantity;
-	private LocalTime m_OrderTime;
-	private LocalTime m_DeliveryTime;
-	private String m_Type;
-	private double m_Price;
+	private final int m_Quantity;
+	private final LocalTime m_OrderTime;
+	private final LocalTime m_DeliveryTime;
+	private final String m_Type;
+	private final double m_Price;
 	private double m_Cost;
 	protected ArrayList<PizzaTopping> m_Toppings;
 	
@@ -43,7 +43,7 @@ public abstract class Pizza  {
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException{
 		// TO DO	
-		if(m_OrderTime.isBefore(LocalTime.of(19, 0, 0)) || (m_OrderTime.isAfter(LocalTime.of(23, 0, 0)))) {
+		if(orderTime.isBefore(LocalTime.of(19, 0, 0)) || (deliveryTime.isAfter(LocalTime.of(23, 0, 0)))) {
 			throw new PizzaException();
 		} else if (type.equals("PZM") == false || type.equals("PZV") == false || type.equals("PZL") == false){
 			throw new PizzaException();
@@ -77,7 +77,8 @@ public abstract class Pizza  {
 	 * @return The amount that an individual pizza costs to make.
 	 */
 	public final double getCostPerPizza(){
-		// TO DO
+		calculateCostPerPizza();
+		return m_Cost;
 	}
 
 	/**
