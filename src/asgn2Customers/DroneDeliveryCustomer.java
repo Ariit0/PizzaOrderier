@@ -39,9 +39,6 @@ public class DroneDeliveryCustomer extends Customer {
 	 */
 	@Override
 	public double getDeliveryDistance() {
-		// TO DO
-
+		return Math.sqrt(Math.pow(getLocationX(), 2) + Math.pow(getLocationY(), 2));
 	}
-	
-
 }
