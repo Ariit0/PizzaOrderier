@@ -21,7 +21,7 @@ public abstract class Pizza  {
 	private LocalTime m_DeliveryTime;
 	private String m_Type;
 	private double m_Price;
-	private ArrayList<PizzaTopping> m_Toppings;
+	protected ArrayList<PizzaTopping> m_Toppings;
 	
 	/**
 	 *  This class represents a pizza produced at the Pizza Palace restaurant.  A detailed description of the class's fields
