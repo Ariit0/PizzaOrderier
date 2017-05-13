@@ -144,7 +144,7 @@ public abstract class Pizza  {
 	 * @return the quantity of pizzas ordered. 
 	 */
 	public final int getQuantity(){
-		// TO DO
+		return m_Quantity;
 	}
 
 	/**
