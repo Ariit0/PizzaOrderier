@@ -32,7 +32,8 @@ public class PizzaRestaurant {
 	 * 
 	 */
 	public PizzaRestaurant() {
-		// TO DO
+		customers = new ArrayList<Customer>();
+		pizzas = new ArrayList<Pizza>();
 	}
 
 	/**
