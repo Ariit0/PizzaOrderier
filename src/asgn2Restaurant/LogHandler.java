@@ -23,8 +23,6 @@ import asgn2Pizzas.Pizza;
  */
 public class LogHandler {
 	
-	private static BufferedReader file;
-
 	/**
 	 * Returns an ArrayList of Customer objects from the information contained in the log file ordered as they appear in the log file.
 	 * @param filename The file name of the log file
@@ -34,22 +32,19 @@ public class LogHandler {
 	 * 
 	 */
 	public static ArrayList<Customer> populateCustomerDataset(String filename) throws CustomerException, LogHandlerException {
-        // not sure on this implementation method
 		try {
 			ArrayList<Customer> customer = new ArrayList<Customer>();
-	        file = new BufferedReader(new FileReader(filename));
-	        // create customer
+			BufferedReader file = new BufferedReader(new FileReader(filename));
 	        String line = file.readLine();
-	        String[] data = line.split(","); 
-	        String customerName = data[2];
-	        String customerMobile = data[3];
-	        String customerCode = data[4];
-	        int customerXLocation = Integer.parseInt(data[5]);
-	        int customerYLocation = Integer.parseInt(data[6]);
-	        customer.add(CustomerFactory.getCustomer(customerCode, customerName, customerMobile, customerXLocation, customerYLocation));
-	        
+			
+	        while (line != null) {
+		        customer.add(createCustomer(line));
+		        file.readLine();
+	        }
+
+	        file.close(); // prevent resource leak
 			return customer;
-		} catch(IOException exception) {
+		} catch (IOException exception) {
         	System.out.println(exception.getMessage());
         	exception.printStackTrace();
 			throw new LogHandlerException();
@@ -77,8 +72,21 @@ public class LogHandler {
 	 * @throws CustomerException - If the log file contains semantic errors leading that violate the customer constraints listed in Section 5.3 of the Assignment Specification or contain an invalid customer code (passed by another class).
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
-	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException{
-		// TO DO
+	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException {
+	        // create customer
+	        String[] data = line.split(","); 
+	        // validation
+	        if (data.length != 9) {
+	        	throw new LogHandlerException();
+	        }
+	        
+	        String customerName = data[2];
+	        String customerMobile = data[3];
+	        String customerCode = data[4];
+	        int customerXLocation = Integer.parseInt(data[5]);
+	        int customerYLocation = Integer.parseInt(data[6]);
+	        
+	        return  CustomerFactory.getCustomer(customerCode, customerName, customerMobile, customerXLocation, customerYLocation);
 	}
 	
 	/**
