@@ -130,7 +130,8 @@ public class PizzaRestaurant {
 	 * <P> POST:  The pizzas and customers fields are set to their initial empty states
 	 */
 	public void resetDetails(){
-		// TO DO
+		pizzas.clear();
+		customers.clear();
 	}
 
 }
