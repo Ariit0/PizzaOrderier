@@ -82,7 +82,7 @@ public class PizzaRestaurant {
 	 * @return the number of objects contained in the pizzas field.
 	 */
 	public int getNumPizzaOrders(){
-		return customers.size();
+
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class PizzaRestaurant {
 	 * @return the number of objects contained in the customers field.
 	 */
 	public int getNumCustomerOrders(){
-		// TO DO
+
 	}
 
 			
