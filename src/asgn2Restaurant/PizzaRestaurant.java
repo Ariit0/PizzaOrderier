@@ -103,7 +103,12 @@ public class PizzaRestaurant {
 	 * @return the total delivery distance for all Customers objects in the customers field.
 	 */
 	public double getTotalDeliveryDistance(){
-		// TO DO
+		double total = 0;
+		for	(int i = 0; i < customers.size(); i++) {
+			total += customers.get(i).getDeliveryDistance();
+		}
+		
+		return total;
 	}
 
 	/**
