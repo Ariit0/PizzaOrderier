@@ -29,8 +29,8 @@ public class PizzaTests {
 	@Before
 	public void Init() throws PizzaException {
 		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		vegetarianPizza = new VegetarianPizza(2, LocalTime.parse("19:45:00"), LocalTime.parse("19:15:00"));
-		meatLoversPizza = new MeatLoversPizza(3, LocalTime.parse("20:30:00"), LocalTime.parse("20:00:00"));
+		vegetarianPizza = new VegetarianPizza(2, LocalTime.parse("19:45:00"), LocalTime.parse("20:15:00"));
+		meatLoversPizza = new MeatLoversPizza(3, LocalTime.parse("20:30:00"), LocalTime.parse("21:00:00"));
 	}
 	
 	/*-------------------------- TESTS FOR MARGHERITA PIZZA CLASS ------------------------------------------*/
@@ -126,6 +126,11 @@ public class PizzaTests {
 		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("019:07:00"), LocalTime.parse("019:30:00"));
 	}
 	
+	@Test (expected = PizzaException.class)
+	public void TestMargheritaPizzaThrownOut() throws PizzaException {
+		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
+	}
+	
 	/*-------------------------- TESTS FOR VEGETARIAN PIZZA CLASS ------------------------------------------*/
 	@Test
 	public void TestOrderVegetarianCostPerPizza() throws PizzaException {
@@ -219,6 +224,11 @@ public class PizzaTests {
 		vegetarianPizza = new VegetarianPizza(1, LocalTime.parse("019:07:00"), LocalTime.parse("019:30:00"));
 	}
 	
+	@Test (expected = PizzaException.class)
+	public void TestVegetarianPizzaThrownOut() throws PizzaException {
+		vegetarianPizza = new VegetarianPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
+	}
+	
 	/*-------------------------- TESTS FOR MEATLOVERS PIZZA CLASS ------------------------------------------*/
 	@Test
 	public void TestOrderMeatLoversCostPerPizza() throws PizzaException {
@@ -310,5 +320,10 @@ public class PizzaTests {
 	@Test (expected = PizzaException.class)
 	public void TestMeatLoversPizzaIncorrectTimeFormat() throws PizzaException {
 		meatLoversPizza = new MeatLoversPizza(1, LocalTime.parse("019:07:00"), LocalTime.parse("019:30:00"));
+	}
+	
+	@Test (expected = PizzaException.class)
+	public void TestMeatLoversPizzaThrownOut() throws PizzaException {
+		meatLoversPizza = new MeatLoversPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
 	}
 }
