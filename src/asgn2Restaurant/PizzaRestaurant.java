@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import asgn2Customers.Customer;
 import asgn2Exceptions.CustomerException;
+import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.Pizza;
 
@@ -54,7 +55,13 @@ public class PizzaRestaurant {
      *
 	 */
 	public boolean processLog(String filename) throws CustomerException, PizzaException, LogHandlerException{
-		// TO DO
+		try{
+			LogHandler.populatePizzaDataset(filename);
+			LogHandler.populateCustomerDataset(filename);
+			return true;
+		} catch (Exception e){
+			return false;
+		}
 	}
 
 	/**
