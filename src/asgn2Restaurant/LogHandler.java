@@ -1,16 +1,26 @@
 package asgn2Restaurant;
 
+<<<<<<< HEAD
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+=======
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.time.LocalTime;
+>>>>>>> 1b3e0787da01d95fd133db39e1d305ebfa068cd2
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import asgn2Customers.Customer;
 import asgn2Customers.CustomerFactory;
 import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.Pizza;
+import asgn2Pizzas.PizzaFactory;
 
 /**
  *
@@ -60,7 +70,24 @@ public class LogHandler {
 	 * 
 	 */
 	public static ArrayList<Pizza> populatePizzaDataset(String filename) throws PizzaException, LogHandlerException{
-		// TO DO
+		ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
+		
+        try {
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			String line = br.readLine();
+			while(!line.isEmpty()){
+				pizzas.add(createPizza(line));
+				line = br.readLine();
+			}
+		} catch (PizzaException e) {
+			throw e;
+		} catch (LogHandlerException e){
+			throw e;
+		} catch (Exception e){
+			throw new LogHandlerException();
+		}
+        
+        return pizzas;
 	}		
 
 	
@@ -98,7 +125,27 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Pizza createPizza(String line) throws PizzaException, LogHandlerException{
-		// TO DO		
+		String[] data = line.split(",");
+		if(data.length != 9){
+			throw new LogHandlerException();
+		}
+		
+		LocalTime orderTime;
+		LocalTime deliveryTime;
+		String pizzaCode;
+		int quantity;
+		try {
+			orderTime = LocalTime.parse(data[0]);
+			deliveryTime = LocalTime.parse(data[1]);
+			pizzaCode = data[7];
+			quantity = Integer.parseInt(data[8]);	
+			
+			return PizzaFactory.getPizza(pizzaCode, quantity, orderTime, deliveryTime);
+		} catch (PizzaException e) {
+			throw e;
+		} catch (Exception e){
+			throw new LogHandlerException();
+		}	
 	}
 
 }

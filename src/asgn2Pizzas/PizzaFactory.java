@@ -15,7 +15,6 @@ import asgn2Exceptions.PizzaException;
 
 public class PizzaFactory {
 
-
 	/**
 	 * A method that uses the Factory Method pattern to produce an instance of one of the asgn2Pizzas.Pizza subclasses. 
 	 * Subclasses are created using the pizzaCode. All valid pizza codes are listed in Section 5.3 of the Assignment Specification.
@@ -29,7 +28,15 @@ public class PizzaFactory {
 	 * @return A valid Pizza object using the specified parameters 
 	 * */
 	public static Pizza getPizza(String pizzaCode, int quantity, LocalTime orderTime, LocalTime deliveryTime) throws PizzaException{
-		// TO DO
+		switch(pizzaCode){
+			case "PZM":
+				return new MargheritaPizza(quantity, orderTime, deliveryTime);
+			case "PZV":
+				return new VegetarianPizza(quantity, orderTime, deliveryTime);
+			case "PZL":
+				return new MeatLoversPizza(quantity, orderTime, deliveryTime);
+			default:
+				throw new PizzaException();
+		}
 	}
-
 }
