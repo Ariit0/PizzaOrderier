@@ -3,6 +3,7 @@ package asgn2Restaurant;
 import java.util.ArrayList;
 
 import asgn2Customers.Customer;
+import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.Pizza;
 
@@ -86,11 +87,7 @@ public class PizzaRestaurant {
 	 * @return the number of objects contained in the pizzas field.
 	 */
 	public int getNumPizzaOrders(){
-<<<<<<< HEAD
-
-=======
 		return pizzas.size();
->>>>>>> 1b3e0787da01d95fd133db39e1d305ebfa068cd2
 	}
 
 	/**

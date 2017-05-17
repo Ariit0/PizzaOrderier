@@ -1,18 +1,10 @@
 package asgn2Restaurant;
 
-<<<<<<< HEAD
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-=======
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.time.LocalTime;
->>>>>>> 1b3e0787da01d95fd133db39e1d305ebfa068cd2
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import asgn2Customers.Customer;
 import asgn2Customers.CustomerFactory;
