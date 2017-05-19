@@ -36,17 +36,11 @@ public abstract class Customer {
 	 * 
 	 */
 	public Customer(String name, String mobileNumber, int locationX, int locationY, String type) throws CustomerException {
-		/* 
-		 * Conditions to check if the supplied parameters are invalid
-		 * 
-		 * Should check for incorrect use of whitespace e.g. ("     firstname    lastname ")
-		 * however not part of API specification
-		 */
+
 		if (name == null
 			|| name.trim().isEmpty() // checks for whitespaces
-			|| name.length() > 20
+			|| name.length() > 21
 			|| name.isEmpty()
-			|| !name.matches("[a-zA-Z]+") // regex ensuring name should be letters only
 			) { 
 
 			throw new CustomerException();
@@ -70,13 +64,9 @@ public abstract class Customer {
 			throw new CustomerException();
 		}
 		
-		if (type.equals("Pick Up") && locationX != 0 && locationY != 0 // to pick up pizza, location is always 0,0. 
-			|| !type.equals("Pick Up")
-			|| !type.equals("Driver Delivery")
-			|| !type.equals("Drone Delivery")
+		if (type.equals("Pick Up") && locationX != 0 && locationY != 0  // to pick up pizza, location is always 0,0. 
 			|| type.equals("Driver Delivery") && locationX == 0 && locationY == 0 // will not deliver if the customer is at the restaurant 
-			|| type.equals("Drone Delivery") && locationX == 0 && locationY == 0 // will not deliver if the customer is at the restaurant
-			) {
+			|| type.equals("Drone Delivery") && locationX == 0 && locationY == 0) { // will not deliver if the customer is at the restaurant 
 			
 			throw new CustomerException();
 		}
@@ -105,7 +95,7 @@ public abstract class Customer {
 	 * @return Manhatten Distance from restaurant
 	 */
 	private int manhattenDistance(int locationX, int locationY) {
-		return (locationX + locationY);
+		return (Math.abs(locationX) + Math.abs(locationY));
 	}
 	
 	/**
