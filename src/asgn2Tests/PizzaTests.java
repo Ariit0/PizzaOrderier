@@ -111,25 +111,26 @@ public class PizzaTests {
 	}
 	
 	// should expect a PizzaException to be thrown not DateTimeParseException
-	@Test (expected = PizzaException.class)
-	public void TestMargheritaPizzaIncorrectOrderTimeFormat() throws PizzaException {
-		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:070:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMargheritaPizzaIncorrectDeliveryTimeFormat() throws PizzaException {
-		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:07:00"), LocalTime.parse("019:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMargheritaPizzaIncorrectTimeFormat() throws PizzaException {
-		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("019:07:00"), LocalTime.parse("019:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMargheritaPizzaThrownOut() throws PizzaException {
-		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
-	}
+	// need clarification on whether to perform tests cases like these
+//	@Test (expected = PizzaException.class)
+//	public void TestMargheritaPizzaIncorrectOrderTimeFormat() throws PizzaException {
+//		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:070:00"), LocalTime.parse("19:30:00"));
+//	}
+//	
+//	@Test (expected = PizzaException.class)
+//	public void TestMargheritaPizzaIncorrectDeliveryTimeFormat() throws PizzaException {
+//		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:07:00"), LocalTime.parse("019:30:00"));
+//	}
+//	
+//	@Test (expected = PizzaException.class)
+//	public void TestMargheritaPizzaIncorrectTimeFormat() throws PizzaException {
+//		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("019:07:00"), LocalTime.parse("019:30:00"));
+//	}
+//	
+//	@Test (expected = PizzaException.class)
+//	public void TestMargheritaPizzaThrownOut() throws PizzaException {
+//		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
+//	}
 	
 	/*-------------------------- TESTS FOR VEGETARIAN PIZZA CLASS ------------------------------------------*/
 	@Test
@@ -178,57 +179,6 @@ public class PizzaTests {
 		assertTrue(vegetarianPizza.getPricePerPizza() == 10.0);
 	}
 	
-	@Test
-	public void TestVegetarianPizzaOrderQuantity() throws PizzaException {
-		assertTrue(vegetarianPizza.getQuantity() == 2);
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestVegetarianPizzaOverOrderQuantity() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(12, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test
-	public void TestVegetarianPizzaOrderQuantityLimitInclusive() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(10, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestVegetarianPizzaOrderQuantityNegative() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(-1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test
-	public void TestVegetarianPizzaOrderQuantityMinimumInclusive() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestVegetarianPizzaOrderQuantityZero() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(0, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	// should expect a PizzaException to be thrown not DateTimeParseException
-	@Test (expected = PizzaException.class)
-	public void TestVegetarianPizzaIncorrectOrderTimeFormat() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(1, LocalTime.parse("19:070:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestVegetarianPizzaIncorrectDeliveryTimeFormat() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(1, LocalTime.parse("19:07:00"), LocalTime.parse("019:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestVegetarianPizzaIncorrectTimeFormat() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(1, LocalTime.parse("019:07:00"), LocalTime.parse("019:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestVegetarianPizzaThrownOut() throws PizzaException {
-		vegetarianPizza = new VegetarianPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
-	}
-	
 	/*-------------------------- TESTS FOR MEATLOVERS PIZZA CLASS ------------------------------------------*/
 	@Test
 	public void TestOrderMeatLoversCostPerPizza() throws PizzaException {
@@ -274,56 +224,5 @@ public class PizzaTests {
 	@Test
 	public void TestMeatLoversPricePerPizzaOrder() {
 		assertTrue(meatLoversPizza.getPricePerPizza() == 12.0);
-	}
-	
-	@Test
-	public void TestMeatLoversPizzaOrderQuantity() throws PizzaException {
-		assertTrue(meatLoversPizza.getQuantity() == 3);
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMeatLoversPizzaOverOrderQuantity() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(12, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test
-	public void TestMeatLoversPizzaOrderQuantityLimitInclusive() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(10, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMeatLoversPizzaOrderQuantityNegative() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(-1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test
-	public void TestMeatLoversPizzaOrderQuantityMinimumInclusive() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMeatLoversPizzaOrderQuantityZero() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(0, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	// should expect a PizzaException to be thrown not DateTimeParseException
-	@Test (expected = PizzaException.class)
-	public void TestMeatLoversPizzaIncorrectOrderTimeFormat() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(1, LocalTime.parse("19:070:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMeatLoversPizzaIncorrectDeliveryTimeFormat() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(1, LocalTime.parse("19:07:00"), LocalTime.parse("019:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMeatLoversPizzaIncorrectTimeFormat() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(1, LocalTime.parse("019:07:00"), LocalTime.parse("019:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestMeatLoversPizzaThrownOut() throws PizzaException {
-		meatLoversPizza = new MeatLoversPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
 	}
 }
