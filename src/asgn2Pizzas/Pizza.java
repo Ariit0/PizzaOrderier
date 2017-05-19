@@ -1,6 +1,7 @@
 package asgn2Pizzas;
 
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 import asgn2Exceptions.PizzaException;
@@ -43,6 +44,8 @@ public abstract class Pizza  {
 	 */
 	public Pizza(int quantity, LocalTime orderTime, LocalTime deliveryTime, String type, double price) throws PizzaException {
 		if(orderTime.isBefore(LocalTime.of(19, 0, 0)) || (deliveryTime.isAfter(LocalTime.of(23, 0, 0)))) {
+			throw new PizzaException();
+		} else if ((orderTime.until(deliveryTime, ChronoUnit.HOURS) > 0)) {
 			throw new PizzaException();
 		} else if (quantity < 1 || quantity > 10) {
 			throw new PizzaException();
