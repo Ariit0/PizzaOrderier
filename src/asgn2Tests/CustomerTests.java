@@ -90,13 +90,13 @@ public class CustomerTests {
 	}
 	
 	/* too short mobile number should pass but doesn't. */
-	@Test
+	@Test (expected = CustomerException.class)
 	public void TestDroneDeliveryCustomerMobileNumberTooShort() throws CustomerException {
 		droneDeliveryCustomer = new DroneDeliveryCustomer("Bobby", "04123", 2, 3);
 	}
 	
 	/* too long mobile number should pass but doesn't. */
-	@Test
+	@Test (expected = CustomerException.class)
 	public void TestDroneDeliveryCustomerMobileNumberTooLong() throws CustomerException {
 		driverDeliveryCustomer = new DriverDeliveryCustomer("Bobby", "0412345678999999", 2, 3);
 	}
