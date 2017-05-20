@@ -38,11 +38,6 @@ public class LogHandlerPizzaTests {
 	}
 	
 	@Test (expected = LogHandlerException.class)
-	public void TestCreatePizzaInvalidDeliveryTime() throws PizzaException, LogHandlerException {
-		LogHandler.createPizza("19:00:00,25:20:00,Casey Jones,0123456789999999,DVC,5,5,PZV,2");
-	}
-	
-	@Test (expected = LogHandlerException.class)
 	public void TestCreatePizzaInvalidTimeFormat() throws PizzaException, LogHandlerException {
 		LogHandler.createPizza("19,25:00,Casey Jones,0123456789999999,DVC,5,5,PZV,2");
 	}

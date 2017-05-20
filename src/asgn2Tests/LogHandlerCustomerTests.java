@@ -63,6 +63,16 @@ public class LogHandlerCustomerTests {
 		LogHandler.createCustomer("19:00:00,19:20:00,Casey Jones,0123456789,DVC,5,-11,PZV,2");
 	}
 	
+	@Test (expected = LogHandlerException.class)
+	public void TestCreateCustomerInvalidXLocationFormat() throws CustomerException, LogHandlerException {
+		LogHandler.createCustomer("19:00:00,19:20:00,Casey Jones,0123456789,DVC,aa,5,PZV,2");
+	}
+	
+	@Test (expected = LogHandlerException.class)
+	public void TestCreateCustomerInvalidYLocationFormat() throws CustomerException, LogHandlerException {
+		LogHandler.createCustomer("19:00:00,19:20:00,Casey Jones,0123456789,DVC,5,aa,PZV,2");
+	}
+	
 	@Test
 	public void TestPopulateCustomerDataset() throws CustomerException, LogHandlerException {
 		LogHandler.populateCustomerDataset("logs/20170101.txt");
