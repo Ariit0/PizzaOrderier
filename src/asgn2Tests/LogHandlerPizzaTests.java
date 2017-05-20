@@ -39,7 +39,7 @@ public class LogHandlerPizzaTests {
 	
 	@Test (expected = LogHandlerException.class)
 	public void TestCreatePizzaInvalidTimeFormat() throws PizzaException, LogHandlerException {
-		LogHandler.createPizza("19,25:00,Casey Jones,0123456789999999,DVC,5,5,PZV,2");
+		LogHandler.createPizza("19,25:00,Casey Jones,0123456789,DVC,5,5,PZV,2");
 	}
 	
 	@Test (expected = PizzaException.class)
@@ -52,7 +52,11 @@ public class LogHandlerPizzaTests {
 		LogHandler.createPizza("19:00:00,19:20:00,Casey Jones,0123456789,DVC,5,5,PZV,100");
 	}
 	
-	// last log file doesnt work
+	@Test (expected = LogHandlerException.class)
+	public void TestCreatePizzaQuantityStringInput() throws PizzaException, LogHandlerException {
+		LogHandler.createPizza("19:00:00,19:20:00,Casey Jones,0123456789,DVC,5,5,PZV,AB");
+	}
+	
 	@Test
 	public void TestPopulatePizzaDataset() throws PizzaException, LogHandlerException {
 		LogHandler.populatePizzaDataset("logs/20170101.txt");
