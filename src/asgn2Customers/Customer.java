@@ -56,10 +56,10 @@ public abstract class Customer {
 			throw new CustomerException();
 		}
 		
-		if (manhattenDistance(locationX, locationY) > 10
-			|| manhattenDistance(locationX, locationY) < -10
-			|| euclideanDistance(locationX, locationY) > 10
-			|| euclideanDistance(locationX, locationY) < -10) {
+		if (locationX > 10 
+			|| locationY > 10
+			|| locationX < -10
+			|| locationY < -10) {
 			
 			throw new CustomerException();
 		}
@@ -76,26 +76,6 @@ public abstract class Customer {
 		this.m_LocationX = locationX;
 		this.m_LocationY = locationY;
 		this.m_Type = type;
-	}
-	
-	/**
-	 * Returns the euclidean distance given x and y coordinates
-	 * @param locationX - The customer x location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
-	 * @param locationY - The customer y location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
-	 * @return Euclidean Distance from restaurant
-	 */
-	private double euclideanDistance(int locationX, int locationY) {
-		return Math.sqrt(Math.pow(locationX, 2) + Math.pow(locationY, 2));
-	}
-	
-	/**
-	 * Returns the manhatten distance given x and y coordinates
-	 * @param locationX - The customer x location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
-	 * @param locationY - The customer y location relative to the Pizza Palace Restaurant measured in units of 'blocks' 
-	 * @return Manhatten Distance from restaurant
-	 */
-	private int manhattenDistance(int locationX, int locationY) {
-		return (Math.abs(locationX) + Math.abs(locationY));
 	}
 	
 	/**
