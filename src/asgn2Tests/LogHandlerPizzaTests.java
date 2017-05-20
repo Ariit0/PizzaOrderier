@@ -53,7 +53,7 @@ public class LogHandlerPizzaTests {
 	}
 	
 	@Test (expected = LogHandlerException.class)
-	public void TestCreatePizzaQuantityStringInput() throws PizzaException, LogHandlerException {
+	public void TestCreatePizzaInvalidQuantityFormat() throws PizzaException, LogHandlerException {
 		LogHandler.createPizza("19:00:00,19:20:00,Casey Jones,0123456789,DVC,5,5,PZV,AB");
 	}
 	
