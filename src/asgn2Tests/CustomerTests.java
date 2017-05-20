@@ -35,63 +35,63 @@ public class CustomerTests {
 	}
 
 	@Test
-	public void TestValidDroneDeliveryCustomer() throws CustomerException {
+	public void TestValidCustomer() throws CustomerException {
 		droneDeliveryCustomer = new DroneDeliveryCustomer("Bobby", "0412345678", 2, 3);
 	}
 	
 	@Test
-	public void TestMaxLengthDroneDeliveryCustomerNameLettersOnly() throws CustomerException {
+	public void TestMaxLengthCustomerNameLettersOnly() throws CustomerException {
 		driverDeliveryCustomer = new DriverDeliveryCustomer("BobbyBobbyBobbyBobby", "0412345678", 2, 3);
 	}
 	
 	@Test
-	public void TestDroneDeliveryCustomerNameNumbersOnly() throws CustomerException {
+	public void TestCustomerNameNumbersOnly() throws CustomerException {
 		pickUpCustomer = new PickUpCustomer("123456789", "0412345678", 0, 0);
 	}
 
 	@Test
-	public void TestDroneDeliveryCustomerNameSpecialCharsOnly() throws CustomerException {
+	public void TestCustomerNameSpecialCharsOnly() throws CustomerException {
 		droneDeliveryCustomer = new DroneDeliveryCustomer("['=)>,~\\!@#$%^&*(", "0412345678", 2, 3);
 	}
 
 	@Test
-	public void TestMinLengthDroneDeliveryCustomerName() throws CustomerException {
+	public void TestMinLengthCustomerName() throws CustomerException {
 		driverDeliveryCustomer = new DriverDeliveryCustomer("a", "0412345678", 2, 3);
 	}
 
 	@Test (expected = CustomerException.class)
-	public void TestEmptyDroneDeliveryCustomerName() throws CustomerException {
-		pickUpCustomer = new PickUpCustomer("", "0412345678", 2, 3);
+	public void TestEmptyCustomerName() throws CustomerException {
+		pickUpCustomer = new PickUpCustomer("", "0412345678", 0, 0);
 	}
 	
 	@Test (expected = CustomerException.class)
-	public void TestDroneDeliveryCustomerNameTooLong() throws CustomerException {
+	public void TestCustomerNameTooLong() throws CustomerException {
 		droneDeliveryCustomer = new DroneDeliveryCustomer("ThisNameIsWayOver20CharactersForSure", "0412345678", 2, 3);
 	}
 	
 	@Test (expected = CustomerException.class)
-	public void TestWhiteSpaceOnlyDroneDeliveryCustomerName() throws CustomerException {
+	public void TestWhiteSpaceOnlyCustomerName() throws CustomerException {
 		driverDeliveryCustomer = new DriverDeliveryCustomer("     ", "0412345678", 2, 3);
 	}
 	
 	@Test 
-	public void TestWhiteSpaceDroneDeliveryCustomerName() throws CustomerException {
+	public void TestWhiteSpaceCustomerName() throws CustomerException {
 		pickUpCustomer = new PickUpCustomer("   Bobby   ", "0412345678", 0, 0);
 	}
 	
 	@Test (expected = CustomerException.class)
-	public void TestDroneDeliveryCustomerMobileNumberTooShort() throws CustomerException {
+	public void TestCustomerMobileNumberTooShort() throws CustomerException {
 		droneDeliveryCustomer = new DroneDeliveryCustomer("Bobby", "04123", 2, 3);
 	}
 	
 	@Test (expected = CustomerException.class)
-	public void TestDroneDeliveryCustomerMobileNumberTooLong() throws CustomerException {
+	public void TestCustomerMobileNumberTooLong() throws CustomerException {
 		driverDeliveryCustomer = new DriverDeliveryCustomer("Bobby", "0412345678999999", 2, 3);
 	}
 	
 	@Test (expected = CustomerException.class)
-	public void TestDroneDeliveryCustomerMobileNumberDoesntStartWith0() throws CustomerException {
-		pickUpCustomer = new PickUpCustomer("Bobby", "4123456789", 2, 3);
+	public void TestCustomerMobileNumberDoesntStartWith0() throws CustomerException {
+		pickUpCustomer = new PickUpCustomer("Bobby", "4123456789", 0, 0);
 	}
 	
 	@Test
@@ -125,13 +125,18 @@ public class CustomerTests {
 	}
 	
 	@Test (expected = CustomerException.class)
-	public void TestFarAwayDriverDeliveryCustomer() throws CustomerException {
-		driverDeliveryCustomer = new DriverDeliveryCustomer("Bobby", "0412345678", -81, 97);
+	public void TestFarAwayCustomer() throws CustomerException {
+		droneDeliveryCustomer = new DroneDeliveryCustomer("Bobby", "0412345678", -81, 97);
 	}
 	
-	@Test (expected = CustomerException.class)
-	public void TestFarAwayDroneDeliveryCustomer() throws CustomerException {
-		droneDeliveryCustomer = new DroneDeliveryCustomer("Bobby", "0412345678", -81, 97);
+	@Test
+	public void TestBorderlineFarAwayDriverDeliveryCustomer() throws CustomerException {
+		driverDeliveryCustomer = new DriverDeliveryCustomer("Bobby", "0412345678", 10, 10);
+	}
+	
+	@Test 
+	public void TestBorderlineFarAwayDroneDeliveryCustomer() throws CustomerException {
+		droneDeliveryCustomer = new DroneDeliveryCustomer("Bobby", "0412345678", -10, -10);
 	}
 	
 	@Test
