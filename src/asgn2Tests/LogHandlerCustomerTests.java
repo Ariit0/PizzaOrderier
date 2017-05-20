@@ -65,18 +65,18 @@ public class LogHandlerCustomerTests {
 	
 	@Test
 	public void TestPopulateCustomerDataset() throws CustomerException, LogHandlerException {
-		LogHandler.populateCustomerDataset("C:/Users/George/OneDrive/Documents/2017sem1/302/Assignment2/bitbucket/logs/20170101.txt");
-		LogHandler.populateCustomerDataset("C:/Users/George/OneDrive/Documents/2017sem1/302/Assignment2/bitbucket/logs/20170102.txt");
-		LogHandler.populateCustomerDataset("C:/Users/George/OneDrive/Documents/2017sem1/302/Assignment2/bitbucket/logs/20170103.txt");
+		LogHandler.populateCustomerDataset("logs/20170101.txt");
+		LogHandler.populateCustomerDataset("logs/20170102.txt");
+		LogHandler.populateCustomerDataset("logs/20170103.txt");
 	}
 	
 	@Test (expected = LogHandlerException.class)
 	public void TestPopulateCustomerDatasetInvalidLogStructure() throws CustomerException, LogHandlerException {
-		LogHandler.populateCustomerDataset("C:/Users/George/OneDrive/Documents/2017sem1/302/Assignment2/bitbucket/logs/testLog1.txt");
+		LogHandler.populateCustomerDataset("logs/CustomerDatasetTestLog1.txt");
 	}
 	
 	@Test (expected = CustomerException.class)
 	public void TestPopulateCustomerDatasetInvalidDataSemantics() throws CustomerException, LogHandlerException {
-		LogHandler.populateCustomerDataset("C:/Users/George/OneDrive/Documents/2017sem1/302/Assignment2/bitbucket/logs/testLog2.txt");
+		LogHandler.populateCustomerDataset("logs/CustomerDatasetTestLog2.txt");
 	}
 }
