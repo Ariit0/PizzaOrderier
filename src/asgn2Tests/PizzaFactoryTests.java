@@ -52,32 +52,4 @@ public class PizzaFactoryTests {
 		meatLoversPizza = PizzaFactory.getPizza("", 1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
 		vegetarianPizza = PizzaFactory.getPizza("", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
 	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestWhiteSpaceOnlyCodes() throws PizzaException {
-		margheritaPizza = PizzaFactory.getPizza("   ", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		meatLoversPizza = PizzaFactory.getPizza("   ", 1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		vegetarianPizza = PizzaFactory.getPizza("   ", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestWhiteSpacedCode() throws PizzaException {
-		margheritaPizza = PizzaFactory.getPizza("P Z M", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		meatLoversPizza = PizzaFactory.getPizza("P Z L", 1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		vegetarianPizza = PizzaFactory.getPizza("P Z V", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestSpacesBeforeCode() throws PizzaException {
-		margheritaPizza = PizzaFactory.getPizza("   PZM", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		meatLoversPizza = PizzaFactory.getPizza("   PZL", 1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		vegetarianPizza = PizzaFactory.getPizza("   PZV", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
-	
-	@Test (expected = PizzaException.class)
-	public void TestSpacesAfterCode() throws PizzaException {
-		margheritaPizza = PizzaFactory.getPizza("PZM   ", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		meatLoversPizza = PizzaFactory.getPizza("PZL   ", 1, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-		vegetarianPizza = PizzaFactory.getPizza("PZV   ", 2, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
-	}
 }
