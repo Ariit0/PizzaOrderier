@@ -41,7 +41,7 @@ public class LogHandler {
 			
 	        while (line != null) {
 		        customer.add(createCustomer(line));
-		        file.readLine();
+		        line = file.readLine();
 	        }
 
 	        file.close(); // prevent resource leak
@@ -93,20 +93,20 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException {
-	        // create customer
-	        String[] data = line.split(","); 
-	        // validation
-	        if (data.length != 9) {
-	        	throw new LogHandlerException();
-	        }
+		// create customer
+		String[] data = line.split(","); 
+		// validation
+		if (data.length != 9) {
+			throw new LogHandlerException();
+		}
 	        
-	        String customerName = data[2];
-	        String customerMobile = data[3];
-	        String customerCode = data[4];
-	        int customerXLocation = Integer.parseInt(data[5]);
-	        int customerYLocation = Integer.parseInt(data[6]);
+		String customerName = data[2];
+		String customerMobile = data[3];
+		String customerCode = data[4];
+		int customerXLocation = Integer.parseInt(data[5]);
+		int customerYLocation = Integer.parseInt(data[6]);
 	        
-	        return  CustomerFactory.getCustomer(customerCode, customerName, customerMobile, customerXLocation, customerYLocation);
+		return  CustomerFactory.getCustomer(customerCode, customerName, customerMobile, customerXLocation, customerYLocation);
 	}
 	
 	/**
