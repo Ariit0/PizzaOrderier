@@ -46,9 +46,13 @@ public class LogHandler {
 
 	        file.close(); // prevent resource leak
 			return customer;
-		} catch (IOException exception) {
-        	System.out.println(exception.getMessage());
-        	exception.printStackTrace();
+		} catch (CustomerException exception) {
+			throw exception;
+		} catch (LogHandlerException exception){
+			throw exception;
+		} catch (Exception exception){
+			exception.getMessage();
+			exception.printStackTrace();
 			throw new LogHandlerException();
 		}
 	}		
@@ -93,20 +97,28 @@ public class LogHandler {
 	 * @throws LogHandlerException - If there was a problem parsing the line from the log file.
 	 */
 	public static Customer createCustomer(String line) throws CustomerException, LogHandlerException {
-		// create customer
-		String[] data = line.split(","); 
-		// validation
-		if (data.length != 9) {
+		try {
+			// create customer
+			String[] data = line.split(","); 
+			// validation
+			if (data.length != 9) {
+				throw new LogHandlerException();
+			}
+	        
+			String customerName = data[2];
+			String customerMobile = data[3];
+			String customerCode = data[4];
+			int customerXLocation = Integer.parseInt(data[5]);
+			int customerYLocation = Integer.parseInt(data[6]);
+	        
+			return  CustomerFactory.getCustomer(customerCode, customerName, customerMobile, customerXLocation, customerYLocation);
+		} catch (CustomerException exception) {
+			throw exception;
+		} catch (Exception exception){
+			exception.getMessage();
+			exception.printStackTrace();
 			throw new LogHandlerException();
-		}
-	        
-		String customerName = data[2];
-		String customerMobile = data[3];
-		String customerCode = data[4];
-		int customerXLocation = Integer.parseInt(data[5]);
-		int customerYLocation = Integer.parseInt(data[6]);
-	        
-		return  CustomerFactory.getCustomer(customerCode, customerName, customerMobile, customerXLocation, customerYLocation);
+		}	
 	}
 	
 	/**
