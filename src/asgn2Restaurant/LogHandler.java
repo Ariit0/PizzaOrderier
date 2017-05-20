@@ -68,24 +68,17 @@ public class LogHandler {
 			BufferedReader br = new BufferedReader(new FileReader(filename));
 			String line = br.readLine();
 			
-			while(!line.isEmpty()){
+			while(line != null){
 				pizzas.add(createPizza(line));
 				line = br.readLine();
 			}
-        }
-		catch (IOException e){
-        	System.out.println(e.getMessage());
-        	e.printStackTrace();
+		} catch (PizzaException e) {
+			throw e;
+		} catch (LogHandlerException e){
+			throw e;
+		} catch (Exception e){
 			throw new LogHandlerException();
 		}
-		
-//		} catch (PizzaException e) {
-//			throw e;
-//		} catch (LogHandlerException e){
-//			throw e;
-//		} catch (Exception e){
-//			throw new LogHandlerException();
-//		}
         
         return pizzas;
 	}		
