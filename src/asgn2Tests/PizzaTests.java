@@ -122,8 +122,13 @@ public class PizzaTests {
 	
 	@Test (expected = PizzaException.class)
 	public void TestUnderCookedPizza() throws PizzaException {
-		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:07:00"), LocalTime.parse("19:30:00"));
+		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:07:00"), LocalTime.parse("19:10:00"));
 	}
+	// unsure due to specification
+	@Test
+    public void TestUnderCookedPizzaBoundaryTime() throws PizzaException {
+        margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("19:10:00"));
+    }
 	
 	/*-------------------------- TESTS FOR VEGETARIAN PIZZA CLASS ------------------------------------------*/
 	@Test
