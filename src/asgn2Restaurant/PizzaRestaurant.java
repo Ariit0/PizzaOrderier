@@ -73,6 +73,9 @@ public class PizzaRestaurant {
 	 * @throws CustomerException if index is invalid.
 	 */
 	public Customer getCustomerByIndex(int index) throws CustomerException{
+		if(index < 0 || index >= pizzas.size()){
+			throw new CustomerException();
+		}
 		return customers.get(index);
 	}
 	
