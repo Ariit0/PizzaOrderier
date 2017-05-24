@@ -32,9 +32,14 @@ public class RestaurantPizzaTests {
 		assertTrue(pizzaRestaurant.processLog("logs/20170103.txt") == true);
 	}
 	
-	@Test
-	public void TestProcessLogFail() throws CustomerException, PizzaException, LogHandlerException {
-		assertTrue(pizzaRestaurant.processLog("logs/PizzaDatasetTestLog1.txt") == false);
+	@Test (expected = PizzaException.class)
+	public void TestProcessLogThrowsPizzaException() throws CustomerException, PizzaException, LogHandlerException {
+		pizzaRestaurant.processLog("logs/PizzaDatasetTestLog1.txt");
+	}
+	
+	@Test (expected = LogHandlerException.class)
+	public void TestProcessLogThrowsLogHandlerException() throws CustomerException, PizzaException, LogHandlerException {
+		pizzaRestaurant.processLog("logs/PizzaDatasetTestLog2.txt");
 	}
 	
 	@Test
@@ -49,6 +54,11 @@ public class RestaurantPizzaTests {
 		assertTrue(pizzaRestaurant.getPizzaByIndex(0).getQuantity() == 2);
 		assertTrue(pizzaRestaurant.getPizzaByIndex(0).getOrderPrice() == 20.0);
 		assertTrue(pizzaRestaurant.getPizzaByIndex(0).getPricePerPizza() == 10.0);
+	}
+	
+	@Test (expected = PizzaException.class)
+	public void TestGetPizzaByInvalidIndex() throws PizzaException {
+		pizzaRestaurant.getPizzaByIndex(3);
 	}
 	
 	@Test
