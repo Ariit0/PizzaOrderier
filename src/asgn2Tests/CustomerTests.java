@@ -187,4 +187,10 @@ public class CustomerTests {
 		droneDeliveryCustomer = new DroneDeliveryCustomer("Bobby", "0412345678", -2, -3);
 		assertTrue(Math.sqrt(Math.pow(0 - droneDeliveryCustomer.getLocationX(), 2) + Math.pow(0 - droneDeliveryCustomer.getLocationY(), 2)) == droneDeliveryCustomer.getDeliveryDistance());	
 	}
+	
+	@Test
+	public void TestGetPickUpDeliveryDistance() throws CustomerException {
+		pickUpCustomer = new PickUpCustomer("Bobby", "0412345678", 0, 0);
+		assertTrue(pickUpCustomer.getDeliveryDistance() == 0);	
+	}
 }
