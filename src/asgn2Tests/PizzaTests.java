@@ -109,28 +109,21 @@ public class PizzaTests {
 	public void TestMargheritaPizzaOrderQuantityZero() throws PizzaException {
 		margheritaPizza = new MargheritaPizza(0, LocalTime.parse("19:00:00"), LocalTime.parse("19:30:00"));
 	}
+		
+	@Test (expected = PizzaException.class)
+	public void TestMargheritaPizzaThrownOut() throws PizzaException {
+		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
+	}
 	
-	// should expect a PizzaException to be thrown not DateTimeParseException
-	// need clarification on whether to perform tests cases like these
-//	@Test (expected = PizzaException.class)
-//	public void TestMargheritaPizzaIncorrectOrderTimeFormat() throws PizzaException {
-//		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:070:00"), LocalTime.parse("19:30:00"));
-//	}
-//	
-//	@Test (expected = PizzaException.class)
-//	public void TestMargheritaPizzaIncorrectDeliveryTimeFormat() throws PizzaException {
-//		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:07:00"), LocalTime.parse("019:30:00"));
-//	}
-//	
-//	@Test (expected = PizzaException.class)
-//	public void TestMargheritaPizzaIncorrectTimeFormat() throws PizzaException {
-//		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("019:07:00"), LocalTime.parse("019:30:00"));
-//	}
-//	
-//	@Test (expected = PizzaException.class)
-//	public void TestMargheritaPizzaThrownOut() throws PizzaException {
-//		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:00:00"), LocalTime.parse("22:00:00"));
-//	}
+	@Test (expected = PizzaException.class)
+	public void TestUnRealisticOrderDeliveryTime() throws PizzaException {
+		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("20:00:00"), LocalTime.parse("19:30:00"));
+	}
+	
+	@Test (expected = PizzaException.class)
+	public void TestUnderCookedPizza() throws PizzaException {
+		margheritaPizza = new MargheritaPizza(1, LocalTime.parse("19:07:00"), LocalTime.parse("19:30:00"));
+	}
 	
 	/*-------------------------- TESTS FOR VEGETARIAN PIZZA CLASS ------------------------------------------*/
 	@Test
