@@ -33,24 +33,67 @@ import javax.swing.*;
  *
  */
 public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionListener {
-	
+	private static final long serialVersionUID =  -7031008862559936404L;
+	public static final int WIDTH = 1600;
+	public static final int HEIGHT = 900;
 	
 	private PizzaRestaurant restaurant;
+	private JFrame mainFrame;
+	private JPanel pnlOne;
 	
 	/**
 	 * Creates a new Pizza GUI with the specified title 
 	 * @param title - The title for the supertype JFrame
 	 */
 	public PizzaGUI(String title) {
-		// TO DO
+		mainFrame = new JFrame(title);
 	}
-
 	
 	@Override
 	public void run() {
-		// TO DO
+		CreateGUI();
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	
+	private void CreateGUI() {
+		mainFrame.setSize(WIDTH, HEIGHT);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setLayout(new BorderLayout()); 
+		
+		JButton button = new JButton("Select File");
+	    button.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent ae) {
+	          JFileChooser fileChooser = new JFileChooser();
+	          int returnValue = fileChooser.showOpenDialog(null);
+	          if (returnValue == JFileChooser.APPROVE_OPTION) {
+	            File selectedFile = fileChooser.getSelectedFile();
+	            System.out.println(selectedFile.getName());
+	          }
+	        }
+	      });
+		
+		// panels
+		pnlOne = createPanel(Color.WHITE);
+		
+		// buttons
+		mainFrame.add(button);
+		
+		mainFrame.repaint();
+		
+		mainFrame.setVisible(true);
+	}
+
+	private JPanel createPanel(Color c) {
+		JPanel temp;
+		temp = new JPanel();
+		temp.setBackground(c);
+		
+		return temp;
+	}
 
 }
