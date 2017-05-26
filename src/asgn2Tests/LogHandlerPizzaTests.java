@@ -59,19 +59,19 @@ public class LogHandlerPizzaTests {
 	
 	@Test
 	public void TestPopulatePizzaDataset() throws PizzaException, LogHandlerException {
-		LogHandler.populatePizzaDataset("logs/20170101.txt");
-		LogHandler.populatePizzaDataset("logs/20170102.txt");
-		LogHandler.populatePizzaDataset("logs/20170103.txt");
+		LogHandler.populatePizzaDataset(".//logs/20170101.txt");
+		LogHandler.populatePizzaDataset(".//logs/20170102.txt");
+		LogHandler.populatePizzaDataset(".//logs/20170103.txt");
 	}
 	
 	@Test (expected = PizzaException.class)
 	public void TestPopulatePizzaDatasetInvalidDataSemantics() throws PizzaException, LogHandlerException {
-		LogHandler.populatePizzaDataset("logs/PizzaDatasetTestLog1.txt");
+		LogHandler.populatePizzaDataset(".//logs/PizzaDatasetTestLog1.txt");
 	}
 	
 	
 	@Test (expected = LogHandlerException.class)
 	public void TestPopulatePizzaDatasetInvalidLogStructure() throws PizzaException, LogHandlerException {
-		LogHandler.populatePizzaDataset("logs/PizzaDatasetTestLog2.txt");
+		LogHandler.populatePizzaDataset(".//logs/PizzaDatasetTestLog2.txt");
 	}
 }

@@ -75,18 +75,18 @@ public class LogHandlerCustomerTests {
 	
 	@Test
 	public void TestPopulateCustomerDataset() throws CustomerException, LogHandlerException {
-		LogHandler.populateCustomerDataset("logs/20170101.txt");
-		LogHandler.populateCustomerDataset("logs/20170102.txt");
-		LogHandler.populateCustomerDataset("logs/20170103.txt");
+		LogHandler.populateCustomerDataset(".//logs/20170101.txt");
+		LogHandler.populateCustomerDataset(".//logs/20170102.txt");
+		LogHandler.populateCustomerDataset(".//logs/20170103.txt");
 	}
 	
 	@Test (expected = LogHandlerException.class)
 	public void TestPopulateCustomerDatasetInvalidLogStructure() throws CustomerException, LogHandlerException {
-		LogHandler.populateCustomerDataset("logs/CustomerDatasetTestLog1.txt");
+		LogHandler.populateCustomerDataset(".//logs/CustomerDatasetTestLog1.txt");
 	}
 	
 	@Test (expected = CustomerException.class)
 	public void TestPopulateCustomerDatasetInvalidDataSemantics() throws CustomerException, LogHandlerException {
-		LogHandler.populateCustomerDataset("logs/CustomerDatasetTestLog2.txt");
+		LogHandler.populateCustomerDataset(".//logs/CustomerDatasetTestLog2.txt");
 	}
 }

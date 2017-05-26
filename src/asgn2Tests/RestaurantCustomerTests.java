@@ -23,23 +23,23 @@ PizzaRestaurant pizzaRestaurant;
 	@Before
 	public void Init() throws CustomerException, PizzaException, LogHandlerException {
 		pizzaRestaurant = new PizzaRestaurant();
-		pizzaRestaurant.processLog("logs/20170101.txt");
+		pizzaRestaurant.processLog(".//logs/20170101.txt");
 	}
 	
 	@Test
 	public void TestProcessLog() throws CustomerException, PizzaException, LogHandlerException {
-		assertTrue(pizzaRestaurant.processLog("logs/20170102.txt") == true);
-		assertTrue(pizzaRestaurant.processLog("logs/20170103.txt") == true);
+		assertTrue(pizzaRestaurant.processLog(".//logs/20170102.txt") == true);
+		assertTrue(pizzaRestaurant.processLog(".//logs/20170103.txt") == true);
 	}
 	
 	@Test (expected = LogHandlerException.class)
 	public void TestProcessLogThrowsLogHandlerException() throws CustomerException, PizzaException, LogHandlerException {
-		pizzaRestaurant.processLog("logs/CustomerDatasetTestLog1.txt");
+		pizzaRestaurant.processLog(".//logs/CustomerDatasetTestLog1.txt");
 	}
 	
 	@Test (expected = CustomerException.class)
 	public void TestProcessLogThrowsCustomerException() throws CustomerException, PizzaException, LogHandlerException {
-		pizzaRestaurant.processLog("logs/CustomerDatasetTestLog2.txt");
+		pizzaRestaurant.processLog(".//logs/CustomerDatasetTestLog2.txt");
 	}
 	
 	@Test
