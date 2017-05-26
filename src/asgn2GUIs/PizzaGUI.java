@@ -118,6 +118,13 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	            File selectedFile = fileChooser.getSelectedFile();
 	            restaurant = new PizzaRestaurant();
 	            try {
+	
+					// clear rows
+					for (int i = tableModel.getRowCount() -1; i >= 0; i--) {
+						tableModel.removeRow(i);
+					}
+
+					
 					restaurant.processLog(selectedFile.getAbsolutePath());
 					
 					for (int i = 0; i < restaurant.getNumCustomerOrders(); i++) {
