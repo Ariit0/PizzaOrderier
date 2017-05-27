@@ -5,20 +5,18 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.DefaultCaret;
 
-import asgn2Customers.Customer;
 import asgn2Exceptions.CustomerException;
 import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
-import asgn2Pizzas.Pizza;
+
 import asgn2Restaurant.PizzaRestaurant;
-import com.sun.deploy.panel.JavaPanel;
+
 
 import javax.swing.JFrame;
 
@@ -51,11 +49,14 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	private JTabbedPane tabPane;
 	private JPanel headerPanel;
 	private JPanel buttonPanel;
+	private Box totalsBox;
 
 	private JButton profitButton;
 	private JButton distanceButton;
 	private JButton resetButton;
-	
+
+    private JTextField totalProfit;
+	private JTextField totalDistance;
 	
 	/**
 	 * Creates a new Pizza GUI with the specified title 
@@ -69,8 +70,9 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	public void run() {
 		try {
 			CreateGUI();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception exception) {
+		    exception.getMessage();
+            exception.printStackTrace();
 		}
 	}
 	
@@ -79,6 +81,10 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 		// TODO Auto-generated method stub
 	}
 
+    /**
+     * Creates all elements of the GUI
+     * @throws CustomerException
+     */
 	private void CreateGUI() throws CustomerException {
 		mainFrame.setSize(WIDTH, HEIGHT);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,14 +93,24 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 		tabPane = new JTabbedPane();
 		headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		totalsBox = Box.createVerticalBox();
 
 		mainFrame.getContentPane().add(tabPane);
 		mainFrame.getContentPane().add(headerPanel, BorderLayout.NORTH);
 		mainFrame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+		mainFrame.getContentPane().add(totalsBox, BorderLayout.EAST);
 
         profitButton = new JButton("Calculate Total Profit");
         distanceButton = new JButton("Calculate Total Distance Travelled");
         resetButton = new JButton("Reset");
+
+        totalProfit = new JTextField();
+        totalProfit.setFont(new Font("Arial", Font.BOLD, 20));
+        totalDistance = new JTextField();
+        totalDistance.setFont(new Font("Arial", Font.BOLD, 20));
+
+        totalProfit.setEditable(false);
+        totalDistance.setEditable(false);
 
         profitButton.setEnabled(false);
         distanceButton.setEnabled(false);
@@ -106,7 +122,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 
 		// header
         JLabel headerLabel = new JLabel("Pizza Palace Log System");
-        headerLabel.setFont(new Font("Arial", Font.PLAIN, 36));
+        headerLabel.setFont(new Font("Arial", Font.BOLD, 36));
         headerPanel.add(headerLabel);
 		
 		// buttons
@@ -114,14 +130,29 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
         buttonPanel.add(CalculateTotalProfitButton());
         buttonPanel.add(CalculateTotalDistanceButton());
         buttonPanel.add(ResetLogs());
+
+        // totals
+        JLabel profitLabel = new JLabel("Total Profit");
+        JLabel distanceLabel = new JLabel("Total Distance Travelled    ");
+        profitLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        distanceLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        totalsBox.add(Box.createVerticalStrut(300));
+        totalsBox.add(profitLabel);
+        totalsBox.add(totalProfit);
+        totalsBox.add(distanceLabel);
+        totalsBox.add(totalDistance);
+        totalsBox.add(Box.createVerticalStrut(300));
 		
 		mainFrame.repaint();
 		
 		mainFrame.setVisible(true);
 	}
 
-	
-	private JScrollPane DisplayCustomerInformation() throws CustomerException {
+    /**
+     * JScrollPane which displays customer log file information in a table format
+     * @return Scrollable JTable
+     */
+	private JScrollPane DisplayCustomerInformation() {
 		String columns[] = {"Customer Name", "Mobile Number", "Customer Type", "Location (X,Y)", "Delivery Distance"};
 		String rowData[][] = new String[0][5];
 			
@@ -130,7 +161,11 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    JScrollPane scrollPanel = new JScrollPane(table);
 		return scrollPanel;
 	}
-	
+
+    /**
+     * JScrollPane which displays pizza log file information in a table format
+     * @return Scrollable JTable
+     */
 	private JScrollPane DisplayPizzaInformation() {
 		String columnNames[] = {"Pizza Type", "Quantity", "Order Price", "Order Cost", "Order Profit"};
 		String rowData[][] = new String[0][5];
@@ -140,7 +175,11 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    JScrollPane scrollPanel = new JScrollPane(table);
 		return scrollPanel;
 	}
-	
+
+    /**
+     * JButton which enables file selection for log file input
+     * @return Button for log file selection
+     */
 	private JButton ProcessLogFileButton() {
 		JButton button = new JButton("Load Log File");
 	    button.addActionListener((ActionEvent ae) -> {
@@ -154,7 +193,10 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 					restaurant.processLog(selectedFile.getAbsolutePath());
 					FillTables();
 					profitButton.setEnabled(true);
+					distanceButton.setEnabled(true);
 					resetButton.setEnabled(true);
+                    JOptionPane.showMessageDialog(null, "Successfully Loaded Log File",
+                            "Success!", JOptionPane.INFORMATION_MESSAGE);
 				} catch (CustomerException | PizzaException | LogHandlerException exception) {
                         JOptionPane.showMessageDialog(null, "Log file must be .txt " +
                                         "following the format specifications in Section 5.3",
@@ -167,40 +209,69 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    return button;
 	}
 
+    /**
+     * Functionality of calculating the total profit for the log file
+     * @return Button which performs the calculation
+     */
 	private JButton CalculateTotalProfitButton() {
         profitButton.addActionListener((ActionEvent ae) -> {
-            // button functionality
+            totalProfit.setText("$ " + Double.toString(round(restaurant.getTotalProfit(), 2)));
+            JOptionPane.showMessageDialog(null, "Successfully Calculated Total Profit",
+                    "Success!", JOptionPane.INFORMATION_MESSAGE);
         });
 
         return profitButton;
     }
 
+    /**
+     * Functionality of calculating the total distance travelled for the log file
+     * @return Button which performs the calculation
+     */
     private JButton CalculateTotalDistanceButton() {
         distanceButton.addActionListener((ActionEvent ae) -> {
-            // button functionality
+            totalDistance.setText(round(restaurant.getTotalDeliveryDistance(), 2) + " Units");
+            JOptionPane.showMessageDialog(null, "Successfully Calculated Total Distance Travelled",
+                    "Success!", JOptionPane.INFORMATION_MESSAGE);
         });
 
         return distanceButton;
     }
 
+    /**
+     * Functionality of resetting all information process from the log file
+     * @return Button which performs the functionality
+     */
     private JButton ResetLogs() {
-        resetButton.addActionListener((ActionEvent ae) -> {
-            ResetTables();
-        });
+        resetButton.addActionListener((ActionEvent ae) ->
+            ResetTables()
+        );
 
 	    return resetButton;
     }
-	
+
+    /**
+     * Functionality which specifically clears table rows and disable buttons
+     * @return Button which performs the functionality
+     */
 	private void ResetTables() {
 	    profitButton.setEnabled(false);
+	    distanceButton.setEnabled(false);
 	    resetButton.setEnabled(false);
+
+	    totalDistance.setText("");
+	    totalProfit.setText("");
 		// clear rows, row count for customer and pizzas should be the same
 		for (int i = customerTableModel.getRowCount() -1; i >= 0; i--) {
             customerTableModel.removeRow(i);
             pizzaTableModel.removeRow(i);
         }
 	}
-	
+
+    /**
+     * Fills the tables with the processed log file's contents if valid
+     * @throws CustomerException
+     * @throws PizzaException
+     */
 	private void FillTables() throws CustomerException, PizzaException {
 		// fill table, order count for customer and pizzas should be the same
 		for (int i = 0; i < restaurant.getNumCustomerOrders(); i++) {
@@ -210,7 +281,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
                     restaurant.getCustomerByIndex(i).getCustomerType(),
                     Integer.toString(restaurant.getCustomerByIndex(i).getLocationX()) +", "+
                             Integer.toString(restaurant.getCustomerByIndex(i).getLocationY()),
-                    Double.toString(restaurant.getCustomerByIndex(i).getDeliveryDistance())}
+                    Double.toString(round(restaurant.getCustomerByIndex(i).getDeliveryDistance(), 2))}
             );
 
             pizzaTableModel.addRow(new String[] {
@@ -218,8 +289,24 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
                     Integer.toString(restaurant.getPizzaByIndex(i).getQuantity()),
                     Double.toString(restaurant.getPizzaByIndex(i).getOrderPrice()),
                     Double.toString(restaurant.getPizzaByIndex(i).getOrderCost()),
-                    Double.toString(restaurant.getPizzaByIndex(i).getOrderProfit())}
+                    Double.toString(round(restaurant.getPizzaByIndex(i).getOrderProfit(), 2))}
             );
 		}
 	}
+
+    /**
+     * Rounds floating point numbers to the number of places indicated
+     * @param value Value to be rounded
+     * @param numPlaces Round value by number of places
+     * @return Rounded value
+     */
+    private static double round(double value, int numPlaces) {
+        if (numPlaces < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        BigDecimal bigDecimal = new BigDecimal(value);
+        bigDecimal = bigDecimal.setScale(numPlaces, RoundingMode.HALF_UP);
+        return bigDecimal.doubleValue();
+    }
 }
