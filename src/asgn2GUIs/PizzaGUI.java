@@ -51,6 +51,10 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	private JTabbedPane tabPane;
 	private JPanel headerPanel;
 	private JPanel buttonPanel;
+
+	private JButton profitButton;
+	private JButton distanceButton;
+	private JButton resetButton;
 	
 	
 	/**
@@ -58,7 +62,7 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	 * @param title - The title for the supertype JFrame
 	 */
 	public PizzaGUI(String title) {
-		mainFrame = new JFrame(title);
+	    mainFrame = new JFrame(title);
 	}
 	
 	@Override
@@ -78,8 +82,8 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	private void CreateGUI() throws CustomerException {
 		mainFrame.setSize(WIDTH, HEIGHT);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setLayout(new BorderLayout()); 
-		
+		mainFrame.setLayout(new BorderLayout());
+
 		tabPane = new JTabbedPane();
 		headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -87,6 +91,14 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 		mainFrame.getContentPane().add(tabPane);
 		mainFrame.getContentPane().add(headerPanel, BorderLayout.NORTH);
 		mainFrame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+
+        profitButton = new JButton("Calculate Total Profit");
+        distanceButton = new JButton("Calculate Total Distance Travelled");
+        resetButton = new JButton("Reset");
+
+        profitButton.setEnabled(false);
+        distanceButton.setEnabled(false);
+        resetButton.setEnabled(false);
 
 		// tabs
 		tabPane.addTab("Customer Orders", DisplayCustomerInformation());
@@ -97,9 +109,11 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
         headerLabel.setFont(new Font("Arial", Font.PLAIN, 36));
         headerPanel.add(headerLabel);
 		
-		// buttons		
+		// buttons
         buttonPanel.add(ProcessLogFileButton());
         buttonPanel.add(CalculateTotalProfitButton());
+        buttonPanel.add(CalculateTotalDistanceButton());
+        buttonPanel.add(ResetLogs());
 		
 		mainFrame.repaint();
 		
@@ -135,13 +149,15 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
 	            restaurant = new PizzaRestaurant();
-	            try {	
-	            	ClearTables();
+	            try {
+                    ResetTables();
 					restaurant.processLog(selectedFile.getAbsolutePath());
 					FillTables();
+					profitButton.setEnabled(true);
+					resetButton.setEnabled(true);
 				} catch (CustomerException | PizzaException | LogHandlerException exception) {
-                        JOptionPane.showMessageDialog(null, "Log file must be .txt and " +
-                                        "follow the formatting as specified in Section 5.3",
+                        JOptionPane.showMessageDialog(null, "Log file must be .txt " +
+                                        "following the format specifications in Section 5.3",
                                         "Invalid File", JOptionPane.ERROR_MESSAGE);
 					exception.printStackTrace();
 	            }
@@ -152,15 +168,32 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	}
 
 	private JButton CalculateTotalProfitButton() {
-        JButton button = new JButton("Calculate Total Profit");
-        button.addActionListener((ActionEvent ae) -> {
+        profitButton.addActionListener((ActionEvent ae) -> {
             // button functionality
         });
 
-        return button;
+        return profitButton;
+    }
+
+    private JButton CalculateTotalDistanceButton() {
+        distanceButton.addActionListener((ActionEvent ae) -> {
+            // button functionality
+        });
+
+        return distanceButton;
+    }
+
+    private JButton ResetLogs() {
+        resetButton.addActionListener((ActionEvent ae) -> {
+            ResetTables();
+        });
+
+	    return resetButton;
     }
 	
-	private void ClearTables() {
+	private void ResetTables() {
+	    profitButton.setEnabled(false);
+	    resetButton.setEnabled(false);
 		// clear rows, row count for customer and pizzas should be the same
 		for (int i = customerTableModel.getRowCount() -1; i >= 0; i--) {
             customerTableModel.removeRow(i);
