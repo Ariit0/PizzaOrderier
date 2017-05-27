@@ -27,10 +27,10 @@ import javax.swing.*;
 
 /**
  * This class is the graphical user interface for the rest of the system. 
- * Currently it is a ‘dummy’ class which extends JFrame and implements Runnable and ActionLister. 
+ * Currently it is a ï¿½dummyï¿½ class which extends JFrame and implements Runnable and ActionLister. 
  * It should contain an instance of an asgn2Restaurant.PizzaRestaurant object which you can use to 
  * interact with the rest of the system. You may choose to implement this class as you like, including changing 
- * its class signature – as long as it  maintains its core responsibility of acting as a GUI for the rest of the system. 
+ * its class signature ï¿½ as long as it  maintains its core responsibility of acting as a GUI for the rest of the system. 
  * You can also use this class and asgn2Wizards.PizzaWizard to test your system as a whole
  * 
  * 
@@ -92,10 +92,10 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	}
 	
 	private JScrollPane DisplayCustomerInformation() throws CustomerException {
-		String columnNames[] = {"Customer Name", "Mobile Number", "Customer Type", "Location (X,Y)", "Delivery Distance"};
+		String columns[] = {"Customer Name", "Mobile Number", "Customer Type", "Location (X,Y)", "Delivery Distance"};
 		String rowData[][] = new String[0][5];
 			
-		customerTableModel = new DefaultTableModel(rowData, columnNames); 
+		customerTableModel = new DefaultTableModel(rowData, columns);
 		table = new JTable(customerTableModel);
 	    JScrollPane scrollPanel = new JScrollPane(table);
 		return scrollPanel;
@@ -112,25 +112,24 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	}
 	
 	private JButton ProcessLogFileButton() {
-		JButton button = new JButton("Select File");
-	    button.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent ae) {
-	          JFileChooser fileChooser = new JFileChooser();
-	          int returnValue = fileChooser.showOpenDialog(null);
-	          if (returnValue == JFileChooser.APPROVE_OPTION) {
-	            File selectedFile = fileChooser.getSelectedFile();
+		JButton button = new JButton("Load Log File");
+	    button.addActionListener((ActionEvent ae) -> {
+	        JFileChooser fileChooser = new JFileChooser();
+            int returnValue = fileChooser.showOpenDialog(null);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
 	            restaurant = new PizzaRestaurant();
 	            try {	
 	            	ClearTables();
 					restaurant.processLog(selectedFile.getAbsolutePath());
 					FillTables();
-									
-				} catch (CustomerException | PizzaException | LogHandlerException e) {
-					e.printStackTrace();
-				}
-	          }
-	        }
-	      });
+				} catch (CustomerException | PizzaException | LogHandlerException exception) {
+	                JOptionPane.showMessageDialog(null, "Log file must be .txt",
+                            "Invalid File", JOptionPane.ERROR_MESSAGE);
+					exception.printStackTrace();
+	            }
+            }
+        });
 	    
 	    return button;
 	}
@@ -149,22 +148,25 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	private void FillTables() throws CustomerException, PizzaException {
 		// fill customer table
 		for (int i = 0; i < restaurant.getNumCustomerOrders(); i++) {
-			customerTableModel.addRow(new String[] {restaurant.getCustomerByIndex(i).getName(),
-											restaurant.getCustomerByIndex(i).getMobileNumber(),
-											restaurant.getCustomerByIndex(i).getCustomerType(),
-											Integer.toString(restaurant.getCustomerByIndex(i).getLocationX()) +", "+ Integer.toString(restaurant.getCustomerByIndex(i).getLocationY()),
-											Double.toString(restaurant.getCustomerByIndex(i).getDeliveryDistance())}
-							 );
+			customerTableModel.addRow(new String[] {
+			                restaurant.getCustomerByIndex(i).getName(),
+                            restaurant.getCustomerByIndex(i).getMobileNumber(),
+                            restaurant.getCustomerByIndex(i).getCustomerType(),
+                            Integer.toString(restaurant.getCustomerByIndex(i).getLocationX()) +", "+
+                                    Integer.toString(restaurant.getCustomerByIndex(i).getLocationY()),
+                            Double.toString(restaurant.getCustomerByIndex(i).getDeliveryDistance())}
+            );
 		}
 		
 		// fill pizza table
 		for (int i = 0; i < restaurant.getNumPizzaOrders(); i++) {
-			pizzaTableModel.addRow(new String[] {restaurant.getPizzaByIndex(i).getPizzaType(),
-											Integer.toString(restaurant.getPizzaByIndex(i).getQuantity()),
-											Double.toString(restaurant.getPizzaByIndex(i).getOrderPrice()),
-											Double.toString(restaurant.getPizzaByIndex(i).getOrderCost()),
-											Double.toString(restaurant.getPizzaByIndex(i).getOrderProfit())}
-							 );
+			pizzaTableModel.addRow(new String[] {
+			            restaurant.getPizzaByIndex(i).getPizzaType(),
+                            Integer.toString(restaurant.getPizzaByIndex(i).getQuantity()),
+                            Double.toString(restaurant.getPizzaByIndex(i).getOrderPrice()),
+                            Double.toString(restaurant.getPizzaByIndex(i).getOrderCost()),
+                            Double.toString(restaurant.getPizzaByIndex(i).getOrderProfit())}
+            );
 		}
 	}
 }
