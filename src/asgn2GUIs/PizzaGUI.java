@@ -18,6 +18,7 @@ import asgn2Exceptions.LogHandlerException;
 import asgn2Exceptions.PizzaException;
 import asgn2Pizzas.Pizza;
 import asgn2Restaurant.PizzaRestaurant;
+import com.sun.deploy.panel.JavaPanel;
 
 import javax.swing.JFrame;
 
@@ -48,6 +49,8 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	private DefaultTableModel pizzaTableModel;
 	private JTable table;
 	private JTabbedPane tabPane;
+	private JPanel headerPanel;
+	private JPanel buttonPanel;
 	
 	
 	/**
@@ -78,18 +81,31 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 		mainFrame.setLayout(new BorderLayout()); 
 		
 		tabPane = new JTabbedPane();
+		headerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
 		mainFrame.getContentPane().add(tabPane);
-			
+		mainFrame.getContentPane().add(headerPanel, BorderLayout.NORTH);
+		mainFrame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+
+		// tabs
 		tabPane.addTab("Customer Orders", DisplayCustomerInformation());
 		tabPane.addTab("Pizza Orders", DisplayPizzaInformation());
+
+		// header
+        JLabel headerLabel = new JLabel("Pizza Palace Log System");
+        headerLabel.setFont(new Font("Arial", Font.PLAIN, 36));
+        headerPanel.add(headerLabel);
 		
 		// buttons		
-		mainFrame.getContentPane().add(ProcessLogFileButton(), BorderLayout.SOUTH);
+        buttonPanel.add(ProcessLogFileButton());
+        buttonPanel.add(CalculateTotalProfitButton());
 		
 		mainFrame.repaint();
 		
 		mainFrame.setVisible(true);
 	}
+
 	
 	private JScrollPane DisplayCustomerInformation() throws CustomerException {
 		String columns[] = {"Customer Name", "Mobile Number", "Customer Type", "Location (X,Y)", "Delivery Distance"};
@@ -124,8 +140,9 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 					restaurant.processLog(selectedFile.getAbsolutePath());
 					FillTables();
 				} catch (CustomerException | PizzaException | LogHandlerException exception) {
-	                JOptionPane.showMessageDialog(null, "Log file must be .txt",
-                            "Invalid File", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Log file must be .txt and " +
+                                        "follow the formatting as specified in Section 5.3",
+                                        "Invalid File", JOptionPane.ERROR_MESSAGE);
 					exception.printStackTrace();
 	            }
             }
@@ -133,39 +150,42 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
 	    
 	    return button;
 	}
+
+	private JButton CalculateTotalProfitButton() {
+        JButton button = new JButton("Calculate Total Profit");
+        button.addActionListener((ActionEvent ae) -> {
+            // button functionality
+        });
+
+        return button;
+    }
 	
 	private void ClearTables() {
-		// clear rows
+		// clear rows, row count for customer and pizzas should be the same
 		for (int i = customerTableModel.getRowCount() -1; i >= 0; i--) {
-			customerTableModel.removeRow(i);
-		}
-		
-		for (int i = pizzaTableModel.getRowCount() -1; i >= 0; i--) {
-			pizzaTableModel.removeRow(i);
-		}
+            customerTableModel.removeRow(i);
+            pizzaTableModel.removeRow(i);
+        }
 	}
 	
 	private void FillTables() throws CustomerException, PizzaException {
-		// fill customer table
+		// fill table, order count for customer and pizzas should be the same
 		for (int i = 0; i < restaurant.getNumCustomerOrders(); i++) {
 			customerTableModel.addRow(new String[] {
-			                restaurant.getCustomerByIndex(i).getName(),
-                            restaurant.getCustomerByIndex(i).getMobileNumber(),
-                            restaurant.getCustomerByIndex(i).getCustomerType(),
-                            Integer.toString(restaurant.getCustomerByIndex(i).getLocationX()) +", "+
-                                    Integer.toString(restaurant.getCustomerByIndex(i).getLocationY()),
-                            Double.toString(restaurant.getCustomerByIndex(i).getDeliveryDistance())}
+                    restaurant.getCustomerByIndex(i).getName(),
+                    restaurant.getCustomerByIndex(i).getMobileNumber(),
+                    restaurant.getCustomerByIndex(i).getCustomerType(),
+                    Integer.toString(restaurant.getCustomerByIndex(i).getLocationX()) +", "+
+                            Integer.toString(restaurant.getCustomerByIndex(i).getLocationY()),
+                    Double.toString(restaurant.getCustomerByIndex(i).getDeliveryDistance())}
             );
-		}
-		
-		// fill pizza table
-		for (int i = 0; i < restaurant.getNumPizzaOrders(); i++) {
-			pizzaTableModel.addRow(new String[] {
-			            restaurant.getPizzaByIndex(i).getPizzaType(),
-                            Integer.toString(restaurant.getPizzaByIndex(i).getQuantity()),
-                            Double.toString(restaurant.getPizzaByIndex(i).getOrderPrice()),
-                            Double.toString(restaurant.getPizzaByIndex(i).getOrderCost()),
-                            Double.toString(restaurant.getPizzaByIndex(i).getOrderProfit())}
+
+            pizzaTableModel.addRow(new String[] {
+                    restaurant.getPizzaByIndex(i).getPizzaType(),
+                    Integer.toString(restaurant.getPizzaByIndex(i).getQuantity()),
+                    Double.toString(restaurant.getPizzaByIndex(i).getOrderPrice()),
+                    Double.toString(restaurant.getPizzaByIndex(i).getOrderCost()),
+                    Double.toString(restaurant.getPizzaByIndex(i).getOrderProfit())}
             );
 		}
 	}
