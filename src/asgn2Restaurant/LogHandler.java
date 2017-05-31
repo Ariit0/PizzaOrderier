@@ -2,7 +2,6 @@ package asgn2Restaurant;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -76,6 +75,8 @@ public class LogHandler {
 				pizzas.add(createPizza(line));
 				line = br.readLine();
 			}
+			
+	        br.close(); // prevent resource leak
 		} catch (PizzaException e) {
 			throw e;
 		} catch (LogHandlerException e){

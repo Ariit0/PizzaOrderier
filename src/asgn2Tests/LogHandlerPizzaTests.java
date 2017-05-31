@@ -1,8 +1,5 @@
 package asgn2Tests;
 
-import java.time.LocalTime;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import asgn2Restaurant.LogHandler;
