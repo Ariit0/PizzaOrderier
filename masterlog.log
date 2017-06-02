@@ -1,3 +1,4 @@
+* c3446d4 : Added Git log files
 * 377c17a : Added pdf format of GUI test
 * 3586ea0 : Edited author
 *   53b1d4d : Merge branch 'master' of https://bitbucket.org/Ariito/cab302-assignment-2
@@ -112,7 +113,13 @@
 * 2f12e8f : Updated to latest pre-existing code from https://bitbucket.org/cab302/asgn2
 * 8cdf590 : Uploaded Pre-Existing Code from https://bitbucket.org/cab302/asgn2
 * bacb1ab : README.md edited online with Bitbucket
-* 9703e48 : README.md created online with Bitbucketcommit 377c17adb50e990f52dd67b762a054d462b53359
+* 9703e48 : README.md created online with Bitbucketcommit c3446d4bbe1aa16f00766b8b422099a58d5f79bc
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri Jun 2 16:47:25 2017 +1000
+
+    Added Git log files
+
+commit 377c17adb50e990f52dd67b762a054d462b53359
 Author: Ari Luangamath <ari1@live.com.au>
 Date:   Fri Jun 2 16:36:58 2017 +1000
 
