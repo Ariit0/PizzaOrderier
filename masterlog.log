@@ -1,3 +1,5 @@
+* b962d1e : Edited Author details
+* 53978d3 : Updated masterlog file
 * c3446d4 : Added Git log files
 * 377c17a : Added pdf format of GUI test
 * 3586ea0 : Edited author
@@ -113,7 +115,19 @@
 * 2f12e8f : Updated to latest pre-existing code from https://bitbucket.org/cab302/asgn2
 * 8cdf590 : Uploaded Pre-Existing Code from https://bitbucket.org/cab302/asgn2
 * bacb1ab : README.md edited online with Bitbucket
-* 9703e48 : README.md created online with Bitbucketcommit c3446d4bbe1aa16f00766b8b422099a58d5f79bc
+* 9703e48 : README.md created online with Bitbucketcommit b962d1e1d15e9954db1227861e6190d8d2b182b1
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri Jun 2 23:44:16 2017 +1000
+
+    Edited Author details
+
+commit 53978d317c1be891efd1c22263073ae01da4f466
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri Jun 2 16:48:25 2017 +1000
+
+    Updated masterlog file
+
+commit c3446d4bbe1aa16f00766b8b422099a58d5f79bc
 Author: Ari Luangamath <ari1@live.com.au>
 Date:   Fri Jun 2 16:47:25 2017 +1000
 
