@@ -242,9 +242,11 @@ public class PizzaGUI extends javax.swing.JFrame implements Runnable, ActionList
      * @return Button which performs the functionality
      */
     private JButton ResetLogs() {
-        resetButton.addActionListener((ActionEvent ae) ->
-            ResetTables()
-        );
+        resetButton.addActionListener((ActionEvent ae) -> {
+            ResetTables();
+            JOptionPane.showMessageDialog(null, "Successfully Reset Log File Data",
+                    "Success!", JOptionPane.INFORMATION_MESSAGE);
+        });
 
 	    return resetButton;
     }
