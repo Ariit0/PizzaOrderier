@@ -10,7 +10,7 @@ import asgn2Pizzas.PizzaFactory;
 /** 
  * A class that tests the asgn2Pizzas.PizzaFactory class.
  * 
- * @author Person B 
+ * @author Ari Luangamath
  * 
  */
 public class PizzaFactoryTests {
