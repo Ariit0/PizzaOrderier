@@ -1,0 +1,194 @@
+* 2adb28a : Created 53 tests for the Customer class.
+* 1b3e078 : Implemented "resetDetails" method in PizzaRestaurant class
+* 777df11 : Changes to "createPizza" method, Implemented "populatePizzaDataset" method in LogHandler class
+* 28793cb : Changes to "createPizza" method in LogHandler class
+* 55c29b4 : Implemented "createPizza" method in LogHandler class
+* 582d488 : Implemented "getTotalProfit" method in PizzaRestaurant class
+* bed1f21 : Implemented "getNumPizzaOrders" in PizzaRestaurant class
+* 87428bb : Implemented "getPizzaByIndex" method in PizzaRestaurant class
+* afdcf23 : Implemented PizzaRestaurant constructor
+* cf76abc : Changes to Pizza Constructor, Implemented "getPizza" static method in PizzaFactory class
+* d049945 : Implemented VegetarianPizza Constructor
+* d6f1cdb : Implemented MeatLoversPizza Constructor
+* 39e46ab : Implemented "getOrderProfit" method
+* 759413e : Implemented "getOrderPrice" method.
+* b7c516f : Changes to MargheritaPizza Constructor, changed "getCostPerPizza" method, Implemented "getOrderCost" method.
+* 9d901bd : Changes to Pizza Constructor and "calculateCostPerPizza" method, Implemented "getCostPerPizza" method.
+* 18f47bc : Implemented "calculateCostPerPizza" method
+* 76f3853 : Implemented MargheritaPizza Constructor
+* 1ab5851 : Changed Pizza Constructor
+* 91f4428 : Fixed pizza type in Pizza constructor, implemented "getPizzaType" method.
+* eabefb2 : Implemented "getQuantity" method
+* 75076ff : Changes to Pizza constructor, additional member variable "m_Toppings", and "containsTopping" method implemented.
+* 074502e : Completed getPricePerPizza method
+* 5833857 : Implemented: Pizza class constructor & Pizza member variables
+* 2f12e8f : Updated to latest pre-existing code from https://bitbucket.org/cab302/asgn2
+* 8cdf590 : Uploaded Pre-Existing Code from https://bitbucket.org/cab302/asgn2
+* bacb1ab : README.md edited online with Bitbucket
+* 9703e48 : README.md created online with Bitbucketcommit 2adb28ae41f8e509fa2164404b2383abd7e2b8d8
+Author: George <george-land@hotmail.com>
+Date:   Wed May 17 18:14:21 2017 +1000
+
+    Created 53 tests for the Customer class.
+
+commit 1b3e0787da01d95fd133db39e1d305ebfa068cd2
+Author: George <george-land@hotmail.com>
+Date:   Sun May 14 16:00:55 2017 +1000
+
+    Implemented "resetDetails" method in PizzaRestaurant class
+
+commit 777df11f46402ab747a22af02aa0c9a764cbb037
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 21:39:29 2017 +1000
+
+    Changes to "createPizza" method, Implemented "populatePizzaDataset" method in LogHandler class
+
+commit 28793cb6527ae36d63f72e6078437bf27eca71b8
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 21:14:41 2017 +1000
+
+    Changes to "createPizza" method in LogHandler class
+
+commit 55c29b483abd5f74c07e36731af01215e3697efe
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 21:10:54 2017 +1000
+
+    Implemented "createPizza" method in LogHandler class
+
+commit 582d488547dd906e2fa9591b1b849329f0a14cc7
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:56:04 2017 +1000
+
+    Implemented "getTotalProfit" method in PizzaRestaurant class
+
+commit bed1f21f2ce6e1d6514f4c47a283c8da5c1e1443
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:54:23 2017 +1000
+
+    Implemented "getNumPizzaOrders" in PizzaRestaurant class
+
+commit 87428bb6c99320584cddb167efe7dc410e84c247
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:52:45 2017 +1000
+
+    Implemented "getPizzaByIndex" method in PizzaRestaurant class
+
+commit afdcf238014e237d2f9852861ca317c5e1f41076
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:47:00 2017 +1000
+
+    Implemented PizzaRestaurant constructor
+
+commit cf76abcc74385bc881ef33f8d7c739c9eb148e81
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:30:13 2017 +1000
+
+    Changes to Pizza Constructor, Implemented "getPizza" static method in PizzaFactory class
+
+commit d049945985b39f193987d374fbfb0a9c9cd0ad92
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:23:24 2017 +1000
+
+    Implemented VegetarianPizza Constructor
+
+commit d6f1cdb67eb393e05d04ded660aef65a8e40fe77
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:19:38 2017 +1000
+
+    Implemented MeatLoversPizza Constructor
+
+commit 39e46ab922b87be174661f8cbb58b40ee9273e54
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:11:18 2017 +1000
+
+    Implemented "getOrderProfit" method
+
+commit 759413e9c00639e5fd58aca297eba2d33d804f14
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:09:56 2017 +1000
+
+    Implemented "getOrderPrice" method.
+
+commit b7c516f80a2c8cd9b00e978ba6651d9c8537ee6d
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:07:56 2017 +1000
+
+    Changes to MargheritaPizza Constructor, changed "getCostPerPizza" method, Implemented "getOrderCost" method.
+
+commit 9d901bd0304f8791e94557de3060a7077abae9f2
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:03:25 2017 +1000
+
+    Changes to Pizza Constructor and "calculateCostPerPizza" method, Implemented "getCostPerPizza" method.
+
+commit 18f47bcf00cb8db906b4331c40f7bcb237cd8bd0
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:00:14 2017 +1000
+
+    Implemented "calculateCostPerPizza" method
+
+commit 76f38539b217c4ff634eaf499a59e6a48ff1d7f5
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:48:49 2017 +1000
+
+    Implemented MargheritaPizza Constructor
+
+commit 1ab5851fa9f29be84aef54bfa1d902e448d37e03
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:42:24 2017 +1000
+
+    Changed Pizza Constructor
+
+commit 91f44287120a5d5e314035c2242de8af52097fce
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:16:51 2017 +1000
+
+    Fixed pizza type in Pizza constructor, implemented "getPizzaType" method.
+
+commit eabefb27285310eca6d662721324c36babbaab46
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:10:49 2017 +1000
+
+    Implemented "getQuantity" method
+
+commit 75076ff138926cdc34a5bb8d78ad1f9850205cb4
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:09:17 2017 +1000
+
+    Changes to Pizza constructor, additional member variable "m_Toppings", and "containsTopping" method implemented.
+
+commit 074502e292efaa164d6cbf6e26d197ff79692f39
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 18:54:21 2017 +1000
+
+    Completed getPricePerPizza method
+
+commit 58338578372b32ee7e7dbd34945f93722e5e96d0
+Author: George <george-land@hotmail.com>
+Date:   Wed May 10 20:02:41 2017 +1000
+
+    Implemented: Pizza class constructor & Pizza member variables
+
+commit 2f12e8f8e39a1b7d07436efeb91fa6b52b7a9b8e
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 7 03:08:15 2017 +1000
+
+    Updated to latest pre-existing code from https://bitbucket.org/cab302/asgn2
+
+commit 8cdf59008793caeb9c80a67f1b3bb3d2a3e82b8f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 18:26:58 2017 +1000
+
+    Uploaded Pre-Existing Code from https://bitbucket.org/cab302/asgn2
+
+commit bacb1ab5f7726685c4db07a59d654032479c5b1b
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 08:05:01 2017 +0000
+
+    README.md edited online with Bitbucket
+
+commit 9703e48d1fa5c600efee2eae5679766d85a24b48
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 08:00:23 2017 +0000
+
+    README.md created online with Bitbucket

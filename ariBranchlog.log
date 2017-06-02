@@ -1,0 +1,166 @@
+* a4baf73 : Implemented PizzaTest
+* 1aa81a2 : Implemented getTotalDeliveryDistance
+* e605d64 : Implemented getNumCustomerOrders
+* 4e35eb2 : Removed previous implementation as it is assigned to person A
+* 9dcd38e : Implemented getNumPizzaOrders
+* 2f5e3c8 : Implemented getCustomerByIndex
+* 3424a7c : Implemented PizzaRestaurant constructor
+* 87bddee : Implemented createCustomer method, and fixed some mistakes in populatedCustomerDataset method
+* 350fd63 : Implemented populateCustomerDataset function
+* be04903 : Implemented override method getDeliveryDistance
+* 6f8c773 : Implemented DroneDeliveryCustomer constructor
+* e916c47 : Reduced lines
+* 67d2bc2 : Implemented override method getDeliveryDistance
+* 9e420dc : Implemented DriverDeliveryCustomer constructor
+* 5a48b6c : Finished PickUpCustomer class: implemented getDeliveryDistance return value
+* 87f237b : Implemented constructor for pickupcustomer class
+* 44a9c49 : Finished CustomerFactory class
+* 11e1b0c : Finished Customer Class: added private helper methods, fixed exception conditions to match specifications, improved code formatting
+* 8a7a13e : Added return values to functions, fixed code format to align with set conventions
+* 98d8fcb : Implemented customer constructor with accompanying private variables
+* 2f12e8f : Updated to latest pre-existing code from https://bitbucket.org/cab302/asgn2
+* 8cdf590 : Uploaded Pre-Existing Code from https://bitbucket.org/cab302/asgn2
+* bacb1ab : README.md edited online with Bitbucket
+* 9703e48 : README.md created online with Bitbucketcommit a4baf7392d3fdcf1bacb879f78104371ceadf093
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 18:49:58 2017 +1000
+
+    Implemented PizzaTest
+
+commit 1aa81a28fa82b383771a48bbea6970e0b6ac26f3
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:48:57 2017 +1000
+
+    Implemented getTotalDeliveryDistance
+
+commit e605d6417769f8fd2076315efcec00376d532add
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:45:49 2017 +1000
+
+    Implemented getNumCustomerOrders
+
+commit 4e35eb2692066b27f177e3d001843d0c392024a8
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:45:07 2017 +1000
+
+    Removed previous implementation as it is assigned to person A
+
+commit 9dcd38ea5f64a51234d424fac4ab5b185e9453ec
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:43:34 2017 +1000
+
+    Implemented getNumPizzaOrders
+
+commit 2f5e3c871fed1abb6f7433880630631fa5e7957b
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:42:18 2017 +1000
+
+    Implemented getCustomerByIndex
+
+commit 3424a7c7a8c4a523d3c3c5e362ef222f231d82d1
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 15 04:57:53 2017 +1000
+
+    Implemented PizzaRestaurant constructor
+
+commit 87bddee80d76144207f369560e4adeed7e132184
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 15 04:53:29 2017 +1000
+
+    Implemented createCustomer method, and fixed some mistakes in populatedCustomerDataset method
+
+commit 350fd633f21733db1639fb8d9ce8e924381458a3
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 23:59:06 2017 +1000
+
+    Implemented populateCustomerDataset function
+
+commit be049037132d0996fbe5f0fc39282a41c84c1af4
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 22:16:04 2017 +1000
+
+    Implemented override method getDeliveryDistance
+
+commit 6f8c7736e0b05ee6f575202dd32c625d3d4c945b
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 22:14:33 2017 +1000
+
+    Implemented DroneDeliveryCustomer constructor
+
+commit e916c47ecd8510b54992ba5e1bcc37d491da6cca
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 22:13:22 2017 +1000
+
+    Reduced lines
+
+commit 67d2bc27ca7013a1eb156bea28f5e29fbe22d244
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 22:12:28 2017 +1000
+
+    Implemented override method getDeliveryDistance
+
+commit 9e420dc5c255c142cde1d42a72fd86f43ed3a2b8
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 21:47:01 2017 +1000
+
+    Implemented DriverDeliveryCustomer constructor
+
+commit 5a48b6c77f91f16ab200f74f8c8c38279c0882a7
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 21:44:30 2017 +1000
+
+    Finished PickUpCustomer class: implemented getDeliveryDistance return value
+
+commit 87f237be9f35e8d67773d3fc671351c1d8341880
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 21:37:44 2017 +1000
+
+    Implemented constructor for pickupcustomer class
+
+commit 44a9c493c53e431ab96560c268b605a5c2b6386f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 20:41:46 2017 +1000
+
+    Finished CustomerFactory class
+
+commit 11e1b0c322ee7926d195eb5c899b4fd7b9875ec8
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 20:06:46 2017 +1000
+
+    Finished Customer Class: added private helper methods, fixed exception conditions to match specifications, improved code formatting
+
+commit 8a7a13ea35ffdf8d57fd4720c410b36f02638714
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 16:05:06 2017 +1000
+
+    Added return values to functions, fixed code format to align with set conventions
+
+commit 98d8fcbb3c4e90130bdb9108a9b1d8c3fcad5884
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 15:56:46 2017 +1000
+
+    Implemented customer constructor with accompanying private variables
+
+commit 2f12e8f8e39a1b7d07436efeb91fa6b52b7a9b8e
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 7 03:08:15 2017 +1000
+
+    Updated to latest pre-existing code from https://bitbucket.org/cab302/asgn2
+
+commit 8cdf59008793caeb9c80a67f1b3bb3d2a3e82b8f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 18:26:58 2017 +1000
+
+    Uploaded Pre-Existing Code from https://bitbucket.org/cab302/asgn2
+
+commit bacb1ab5f7726685c4db07a59d654032479c5b1b
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 08:05:01 2017 +0000
+
+    README.md edited online with Bitbucket
+
+commit 9703e48d1fa5c600efee2eae5679766d85a24b48
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 08:00:23 2017 +0000
+
+    README.md created online with Bitbucket

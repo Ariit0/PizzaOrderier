@@ -1,0 +1,734 @@
+* 377c17a : Added pdf format of GUI test
+* 3586ea0 : Edited author
+*   53b1d4d : Merge branch 'master' of https://bitbucket.org/Ariito/cab302-assignment-2
+|\  
+| * ef19104 : Completed GUI functionality test
+| * a1f796f : Added popup window confirmation for resetting
+* | 8924216 : Edited author for each class
+|/  
+* 4485043 : Added GUI functional testing
+* 756575f : Fixed code warnings
+* 5e8a769 : Added total profit and distance text fields, new popup windows to display success of functionality, slightly changed overall GUI design, fixed code formatting and added comments.
+* 818fa39 : Added calculate total profit button and added button status
+* e9b74f7 : Added calculate total profits button, and made changes to GUI layout.
+* d40b890 : Added error popup message for incorrect file input, fixed formatting, updated code structure to match Java 1.8
+* b6b10dc : Implemented Tab system, allow display of pizza and customer log data, organised code
+* 0c008f1 : Fixed log path in test cases
+* 9e84e37 : Fixed log file display
+* 30c183a : Implemented table to display log file details
+* e391dbe : Created button to load files for GUI
+* 0479a00 : Added new test scenario for pizza
+* 8bd842d : Added exception handling for under cooked pizza
+* 2fbdbe8 : Added thrown exception handling
+* 0bcc289 : Added new test cases
+* 270594c : Implemented RestaurantCustomerTests (8)
+* 089d94c : Added Customer test (1)
+* a541a77 : Implemented RestaurantPizzaTests
+* 54ce7ce : Removed test cases and added some new ones
+* 67b5a5c : Fixed processlog exception handling
+* b50e2a2 : Changed a test's name for suitability Kappa
+* a927791 : Added additional tests
+* cff1a9f : Fixed Loghandler exception handling
+* c6437a1 : Fixed Pizza constructor to match api and pass tests, Added new LogHandlerCustomerTests tests (2), Removed a duplicate LogHandlerPizzaTests test
+* c951cdb : Implemented LogHandlerPizzaTests
+* 68ca29b : Fixed file directory for test case
+* 5e7084c : Fixed Loghandler infinite loop
+* ba3fb7a : Added Two Test logs
+* 25cf726 : Changes to "populatePizzaDataset" method in LogHandler class, added tests for LogHandlerCustomerMethods (11)
+* bda2977 : Removed some questionable tests
+* b91ae53 : Implemented PizzaFactoryTests
+* 411a840 : Fixed CustomerFactory exception handling
+* efb0ef6 : Added CustomerFactory tests (4)
+* 5ceac73 : Fixed Customer class to follow specifications regarding delivery distance
+* accee4b : Tidied up customer test names, added two new tests
+* 3966e54 : Tidied up pizza tests
+* d4d4f71 : Tidied up customser tests
+* 47c597f : Fixed returned delivery distance formula
+* 94c2052 : Fixed customer class implementation to abide by specifications and testing solution
+* bb8662d : Fixed mobile number customer Tests assertion
+* c1e1117 : Fixed throwing out pizza tests, Tidied up Customer tests
+* 83ca51a : Added more tests cases for PizzaTests, fixed init() function
+*   02df61a : Merge branch 'master' of https://bitbucket.org/Ariito/cab302-assignment-2
+|\  
+| *   8d4f7db : Merge branch 'AriBranch'
+| |\  
+| | * a4baf73 : Implemented PizzaTest
+* | |   10fded9 : Merge branch 'GeorgeBranch'
+|\ \ \  
+| |/ /  
+|/| |   
+| * | 2adb28a : Created 53 tests for the Customer class.
+* | | b402bb9 : Changes to "populatePizzaDataset", Implemented "processLog" method in PizzaRestaurant class
+* | | 5717e5c : Fixed merge conflicts
+* | |   be1dc5b : Merge branch 'master' of https://bitbucket.org/Ariito/cab302-assignment-2
+|\ \ \  
+| |/ /  
+| | /   
+| |/    
+|/|     
+| * 1b3e078 : Implemented "resetDetails" method in PizzaRestaurant class
+| * 777df11 : Changes to "createPizza" method, Implemented "populatePizzaDataset" method in LogHandler class
+| * 28793cb : Changes to "createPizza" method in LogHandler class
+| * 55c29b4 : Implemented "createPizza" method in LogHandler class
+| * 582d488 : Implemented "getTotalProfit" method in PizzaRestaurant class
+| * bed1f21 : Implemented "getNumPizzaOrders" in PizzaRestaurant class
+| * 87428bb : Implemented "getPizzaByIndex" method in PizzaRestaurant class
+| * afdcf23 : Implemented PizzaRestaurant constructor
+| * cf76abc : Changes to Pizza Constructor, Implemented "getPizza" static method in PizzaFactory class
+| * d049945 : Implemented VegetarianPizza Constructor
+| * d6f1cdb : Implemented MeatLoversPizza Constructor
+| * 39e46ab : Implemented "getOrderProfit" method
+| * 759413e : Implemented "getOrderPrice" method.
+| * b7c516f : Changes to MargheritaPizza Constructor, changed "getCostPerPizza" method, Implemented "getOrderCost" method.
+| * 9d901bd : Changes to Pizza Constructor and "calculateCostPerPizza" method, Implemented "getCostPerPizza" method.
+| * 18f47bc : Implemented "calculateCostPerPizza" method
+| * 76f3853 : Implemented MargheritaPizza Constructor
+| * 1ab5851 : Changed Pizza Constructor
+| * 91f4428 : Fixed pizza type in Pizza constructor, implemented "getPizzaType" method.
+| * eabefb2 : Implemented "getQuantity" method
+| * 75076ff : Changes to Pizza constructor, additional member variable "m_Toppings", and "containsTopping" method implemented.
+| * 074502e : Completed getPricePerPizza method
+| * 5833857 : Implemented: Pizza class constructor & Pizza member variables
+* | 1aa81a2 : Implemented getTotalDeliveryDistance
+* | e605d64 : Implemented getNumCustomerOrders
+* | 4e35eb2 : Removed previous implementation as it is assigned to person A
+* | 9dcd38e : Implemented getNumPizzaOrders
+* | 2f5e3c8 : Implemented getCustomerByIndex
+* | 3424a7c : Implemented PizzaRestaurant constructor
+* | 87bddee : Implemented createCustomer method, and fixed some mistakes in populatedCustomerDataset method
+* | 350fd63 : Implemented populateCustomerDataset function
+* | be04903 : Implemented override method getDeliveryDistance
+* | 6f8c773 : Implemented DroneDeliveryCustomer constructor
+* | e916c47 : Reduced lines
+* | 67d2bc2 : Implemented override method getDeliveryDistance
+* | 9e420dc : Implemented DriverDeliveryCustomer constructor
+* | 5a48b6c : Finished PickUpCustomer class: implemented getDeliveryDistance return value
+* | 87f237b : Implemented constructor for pickupcustomer class
+* | 44a9c49 : Finished CustomerFactory class
+* | 11e1b0c : Finished Customer Class: added private helper methods, fixed exception conditions to match specifications, improved code formatting
+* | 8a7a13e : Added return values to functions, fixed code format to align with set conventions
+* | 98d8fcb : Implemented customer constructor with accompanying private variables
+|/  
+* 2f12e8f : Updated to latest pre-existing code from https://bitbucket.org/cab302/asgn2
+* 8cdf590 : Uploaded Pre-Existing Code from https://bitbucket.org/cab302/asgn2
+* bacb1ab : README.md edited online with Bitbucket
+* 9703e48 : README.md created online with Bitbucketcommit 377c17adb50e990f52dd67b762a054d462b53359
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri Jun 2 16:36:58 2017 +1000
+
+    Added pdf format of GUI test
+
+commit 3586ea0057da73720cda36fc79a27a556b3defdf
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri Jun 2 16:33:44 2017 +1000
+
+    Edited author
+
+commit 53b1d4dccb5d6306c3e03d2e691b60196fde19fe
+Merge: 8924216 ef19104
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri Jun 2 16:31:48 2017 +1000
+
+    Merge branch 'master' of https://bitbucket.org/Ariito/cab302-assignment-2
+
+commit 8924216c40bd1b6f2c304b69e994cb72e38e736f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri Jun 2 16:31:07 2017 +1000
+
+    Edited author for each class
+
+commit ef19104c7799f3821b0874594b2d0cc17e3479c4
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 31 17:24:24 2017 +1000
+
+    Completed GUI functionality test
+
+commit a1f796f7bd94e5d212d718211ea68a9b2073a825
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 31 17:16:30 2017 +1000
+
+    Added popup window confirmation for resetting
+
+commit 44850431cd3482466aad6e95698bc9e3602643b6
+Author: Ari Luangamath <n9446826@qut.edu.au>
+Date:   Wed May 31 16:01:20 2017 +1000
+
+    Added GUI functional testing
+
+commit 756575fdb9dea1225c730767f5bebbebd9df2890
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 31 15:17:23 2017 +1000
+
+    Fixed code warnings
+
+commit 5e8a769a101ec5f6c61807bc99fe8cbb44e1fb8e
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 27 18:56:55 2017 +1000
+
+    Added total profit and distance text fields, new popup windows to display success of functionality, slightly changed overall GUI design, fixed code formatting and added comments.
+
+commit 818fa3960a741bcbc0329cba0eae999d6752c4b6
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 27 17:02:35 2017 +1000
+
+    Added calculate total profit button and added button status
+
+commit e9b74f77f008bf297158e487425daefebe3ec729
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 27 15:49:51 2017 +1000
+
+    Added calculate total profits button, and made changes to GUI layout.
+
+commit d40b890f709ccc3ed8f256e80a97c4b12e6b0bfd
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 27 15:13:33 2017 +1000
+
+    Added error popup message for incorrect file input, fixed formatting, updated code structure to match Java 1.8
+
+commit b6b10dc9991c5a70a60807b46b48c45e6477b211
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri May 26 20:01:49 2017 +1000
+
+    Implemented Tab system, allow display of pizza and customer log data, organised code
+
+commit 0c008f18c71888322c3f77318434e0fe0f7beae4
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri May 26 19:08:37 2017 +1000
+
+    Fixed log path in test cases
+
+commit 9e84e37103df5a55bfd1ecb59431eabf5cad3e9f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri May 26 18:59:46 2017 +1000
+
+    Fixed log file display
+
+commit 30c183a697ead0c960c7c75045e4e476e0cfcc75
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri May 26 18:55:29 2017 +1000
+
+    Implemented table to display log file details
+
+commit e391dbec10b6414e07b2da136fd11d8b9e20730f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Fri May 26 16:33:08 2017 +1000
+
+    Created button to load files for GUI
+
+commit 0479a00b4e6feadaac3b2b1a0737eab8c4459a82
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 24 17:37:18 2017 +1000
+
+    Added new test scenario for pizza
+
+commit 8bd842de501af8dad5463512bb70a841e5e5bc64
+Author: George <george-land@hotmail.com>
+Date:   Wed May 24 17:32:46 2017 +1000
+
+    Added exception handling for under cooked pizza
+
+commit 2fbdbe8877317a579d932ff74d1b086d25ccbd0f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 24 17:16:15 2017 +1000
+
+    Added thrown exception handling
+
+commit 0bcc28985d0b3899b97f7ab809441095b7795d86
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 24 17:15:59 2017 +1000
+
+    Added new test cases
+
+commit 270594c0ae422accf3b7b61bfe9aba04557bc308
+Author: George <george-land@hotmail.com>
+Date:   Wed May 24 16:37:24 2017 +1000
+
+    Implemented RestaurantCustomerTests (8)
+
+commit 089d94c4c26cf2b18a78eb775b616336a003c5b3
+Author: George <george-land@hotmail.com>
+Date:   Wed May 24 16:36:44 2017 +1000
+
+    Added Customer test (1)
+
+commit a541a77b5b0848ae33b6b0af204eaec0ab0603f9
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 24 16:02:40 2017 +1000
+
+    Implemented RestaurantPizzaTests
+
+commit 54ce7ce46e936948237336d56aee56504d8d3703
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 24 16:02:21 2017 +1000
+
+    Removed test cases and added some new ones
+
+commit 67b5a5cd59701a6b7bfebdce8aa8c94721fb702a
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 24 16:00:58 2017 +1000
+
+    Fixed processlog exception handling
+
+commit b50e2a2cc9395196d19fec1c7d4635fe9e1c4695
+Author: George <george-land@hotmail.com>
+Date:   Sun May 21 02:55:53 2017 +1000
+
+    Changed a test's name for suitability Kappa
+
+commit a927791c73b3f706b4a9f5902761d19450f0e007
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 21 02:51:29 2017 +1000
+
+    Added additional tests
+
+commit cff1a9f8463cee0cb78fbfb6db9f076e60f422c2
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 21 02:50:53 2017 +1000
+
+    Fixed Loghandler exception handling
+
+commit c6437a1f6a1d3102620ad73fd523eb78db0b4d29
+Author: George <george-land@hotmail.com>
+Date:   Sun May 21 01:59:07 2017 +1000
+
+    Fixed Pizza constructor to match api and pass tests, Added new LogHandlerCustomerTests tests (2), Removed a duplicate LogHandlerPizzaTests test
+
+commit c951cdb724d717257780e423b37999a21abcee4f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 21 01:35:27 2017 +1000
+
+    Implemented LogHandlerPizzaTests
+
+commit 68ca29b7310f513f0880d28e97b1ca40d40bacad
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 21 01:35:12 2017 +1000
+
+    Fixed file directory for test case
+
+commit 5e7084c16bf1ce752c802fdc0f3378bb61612774
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 21 01:34:50 2017 +1000
+
+    Fixed Loghandler infinite loop
+
+commit ba3fb7aa148825191f5a0eab93864911c857f13d
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 21 01:34:16 2017 +1000
+
+    Added Two Test logs
+
+commit 25cf7268e532729c86f335331c97c8ea86116931
+Author: George <george-land@hotmail.com>
+Date:   Sat May 20 21:07:44 2017 +1000
+
+    Changes to "populatePizzaDataset" method in LogHandler class, added tests for LogHandlerCustomerMethods (11)
+
+commit bda2977c5c54239175e9428f273e76c8a7094b8f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 20 21:02:56 2017 +1000
+
+    Removed some questionable tests
+
+commit b91ae53f44f78ab945f96520fbdeab3e0cd46986
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 20 20:58:01 2017 +1000
+
+    Implemented PizzaFactoryTests
+
+commit 411a840bea5b25a6ae82950c524803f67abffd7e
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 20 20:57:43 2017 +1000
+
+    Fixed CustomerFactory exception handling
+
+commit efb0ef69c97009446fbda6de9e5815ae56fcc3cf
+Author: George <george-land@hotmail.com>
+Date:   Sat May 20 17:59:58 2017 +1000
+
+    Added CustomerFactory tests (4)
+
+commit 5ceac7331d6c59897263d621f05fc37b92c144d2
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 20 17:06:29 2017 +1000
+
+    Fixed Customer class to follow specifications regarding delivery distance
+
+commit accee4ba81bf28634dc8e78f67cc2f43ca89595e
+Author: George <george-land@hotmail.com>
+Date:   Sat May 20 17:00:37 2017 +1000
+
+    Tidied up customer test names, added two new tests
+
+commit 3966e54556e9b3a5424a8c9da9ff6458929d08ee
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 20 02:14:48 2017 +1000
+
+    Tidied up pizza tests
+
+commit d4d4f71c54a08f35b509ec75c9054d882be2e3dd
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 20 02:14:31 2017 +1000
+
+    Tidied up customser tests
+
+commit 47c597f8a3c532947bb077e0644e4bedc79ed87a
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 20 02:14:01 2017 +1000
+
+    Fixed returned delivery distance formula
+
+commit 94c20525be6d0f2d517838326752429010391342
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 20 02:13:24 2017 +1000
+
+    Fixed customer class implementation to abide by specifications and testing solution
+
+commit bb8662d03617b2a43ab0fd9ca3e3d9068c610413
+Author: George <george-land@hotmail.com>
+Date:   Sat May 20 01:45:37 2017 +1000
+
+    Fixed mobile number customer Tests assertion
+
+commit c1e111774c2b9676c3269410931c0a64c308e08f
+Author: George <george-land@hotmail.com>
+Date:   Sat May 20 01:08:43 2017 +1000
+
+    Fixed throwing out pizza tests, Tidied up Customer tests
+
+commit 83ca51aaa448466b9f2376c023f2d97869104674
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 19:10:08 2017 +1000
+
+    Added more tests cases for PizzaTests, fixed init() function
+
+commit 02df61afe16bcb32cfa1c33cde2a8cc3e7b26813
+Merge: 10fded9 8d4f7db
+Author: George <george-land@hotmail.com>
+Date:   Wed May 17 18:56:17 2017 +1000
+
+    Merge branch 'master' of https://bitbucket.org/Ariito/cab302-assignment-2
+
+commit 10fded983c34a46c23020088c53d62fcc0f7665f
+Merge: b402bb9 2adb28a
+Author: George <george-land@hotmail.com>
+Date:   Wed May 17 18:53:43 2017 +1000
+
+    Merge branch 'GeorgeBranch'
+
+commit 8d4f7dbcfbadbf68d28875a58b1a24e48a320e18
+Merge: b402bb9 a4baf73
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 18:50:34 2017 +1000
+
+    Merge branch 'AriBranch'
+
+commit a4baf7392d3fdcf1bacb879f78104371ceadf093
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 18:49:58 2017 +1000
+
+    Implemented PizzaTest
+
+commit 2adb28ae41f8e509fa2164404b2383abd7e2b8d8
+Author: George <george-land@hotmail.com>
+Date:   Wed May 17 18:14:21 2017 +1000
+
+    Created 53 tests for the Customer class.
+
+commit b402bb99ee57938c06b25b88d624a3618601784d
+Author: George <george-land@hotmail.com>
+Date:   Wed May 17 15:15:59 2017 +1000
+
+    Changes to "populatePizzaDataset", Implemented "processLog" method in PizzaRestaurant class
+
+commit 5717e5cc6a3a5cea9d974ca85e5a85a48b1c8cb4
+Author: George <george-land@hotmail.com>
+Date:   Wed May 17 15:04:52 2017 +1000
+
+    Fixed merge conflicts
+
+commit be1dc5b8df888e719fede642ebd20364281732ab
+Merge: 1aa81a2 1b3e078
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:57:26 2017 +1000
+
+    Merge branch 'master' of https://bitbucket.org/Ariito/cab302-assignment-2
+    
+    # Conflicts:
+    #       src/asgn2Restaurant/LogHandler.java
+    #       src/asgn2Restaurant/PizzaRestaurant.java
+
+commit 1aa81a28fa82b383771a48bbea6970e0b6ac26f3
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:48:57 2017 +1000
+
+    Implemented getTotalDeliveryDistance
+
+commit e605d6417769f8fd2076315efcec00376d532add
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:45:49 2017 +1000
+
+    Implemented getNumCustomerOrders
+
+commit 4e35eb2692066b27f177e3d001843d0c392024a8
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:45:07 2017 +1000
+
+    Removed previous implementation as it is assigned to person A
+
+commit 9dcd38ea5f64a51234d424fac4ab5b185e9453ec
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:43:34 2017 +1000
+
+    Implemented getNumPizzaOrders
+
+commit 2f5e3c871fed1abb6f7433880630631fa5e7957b
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Wed May 17 14:42:18 2017 +1000
+
+    Implemented getCustomerByIndex
+
+commit 3424a7c7a8c4a523d3c3c5e362ef222f231d82d1
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 15 04:57:53 2017 +1000
+
+    Implemented PizzaRestaurant constructor
+
+commit 87bddee80d76144207f369560e4adeed7e132184
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 15 04:53:29 2017 +1000
+
+    Implemented createCustomer method, and fixed some mistakes in populatedCustomerDataset method
+
+commit 1b3e0787da01d95fd133db39e1d305ebfa068cd2
+Author: George <george-land@hotmail.com>
+Date:   Sun May 14 16:00:55 2017 +1000
+
+    Implemented "resetDetails" method in PizzaRestaurant class
+
+commit 350fd633f21733db1639fb8d9ce8e924381458a3
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 23:59:06 2017 +1000
+
+    Implemented populateCustomerDataset function
+
+commit be049037132d0996fbe5f0fc39282a41c84c1af4
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 22:16:04 2017 +1000
+
+    Implemented override method getDeliveryDistance
+
+commit 6f8c7736e0b05ee6f575202dd32c625d3d4c945b
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 22:14:33 2017 +1000
+
+    Implemented DroneDeliveryCustomer constructor
+
+commit e916c47ecd8510b54992ba5e1bcc37d491da6cca
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 22:13:22 2017 +1000
+
+    Reduced lines
+
+commit 67d2bc27ca7013a1eb156bea28f5e29fbe22d244
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 22:12:28 2017 +1000
+
+    Implemented override method getDeliveryDistance
+
+commit 9e420dc5c255c142cde1d42a72fd86f43ed3a2b8
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 21:47:01 2017 +1000
+
+    Implemented DriverDeliveryCustomer constructor
+
+commit 5a48b6c77f91f16ab200f74f8c8c38279c0882a7
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 21:44:30 2017 +1000
+
+    Finished PickUpCustomer class: implemented getDeliveryDistance return value
+
+commit 777df11f46402ab747a22af02aa0c9a764cbb037
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 21:39:29 2017 +1000
+
+    Changes to "createPizza" method, Implemented "populatePizzaDataset" method in LogHandler class
+
+commit 87f237be9f35e8d67773d3fc671351c1d8341880
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 21:37:44 2017 +1000
+
+    Implemented constructor for pickupcustomer class
+
+commit 28793cb6527ae36d63f72e6078437bf27eca71b8
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 21:14:41 2017 +1000
+
+    Changes to "createPizza" method in LogHandler class
+
+commit 55c29b483abd5f74c07e36731af01215e3697efe
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 21:10:54 2017 +1000
+
+    Implemented "createPizza" method in LogHandler class
+
+commit 582d488547dd906e2fa9591b1b849329f0a14cc7
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:56:04 2017 +1000
+
+    Implemented "getTotalProfit" method in PizzaRestaurant class
+
+commit bed1f21f2ce6e1d6514f4c47a283c8da5c1e1443
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:54:23 2017 +1000
+
+    Implemented "getNumPizzaOrders" in PizzaRestaurant class
+
+commit 87428bb6c99320584cddb167efe7dc410e84c247
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:52:45 2017 +1000
+
+    Implemented "getPizzaByIndex" method in PizzaRestaurant class
+
+commit afdcf238014e237d2f9852861ca317c5e1f41076
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:47:00 2017 +1000
+
+    Implemented PizzaRestaurant constructor
+
+commit 44a9c493c53e431ab96560c268b605a5c2b6386f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 20:41:46 2017 +1000
+
+    Finished CustomerFactory class
+
+commit cf76abcc74385bc881ef33f8d7c739c9eb148e81
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:30:13 2017 +1000
+
+    Changes to Pizza Constructor, Implemented "getPizza" static method in PizzaFactory class
+
+commit d049945985b39f193987d374fbfb0a9c9cd0ad92
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:23:24 2017 +1000
+
+    Implemented VegetarianPizza Constructor
+
+commit d6f1cdb67eb393e05d04ded660aef65a8e40fe77
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:19:38 2017 +1000
+
+    Implemented MeatLoversPizza Constructor
+
+commit 39e46ab922b87be174661f8cbb58b40ee9273e54
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:11:18 2017 +1000
+
+    Implemented "getOrderProfit" method
+
+commit 759413e9c00639e5fd58aca297eba2d33d804f14
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:09:56 2017 +1000
+
+    Implemented "getOrderPrice" method.
+
+commit b7c516f80a2c8cd9b00e978ba6651d9c8537ee6d
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:07:56 2017 +1000
+
+    Changes to MargheritaPizza Constructor, changed "getCostPerPizza" method, Implemented "getOrderCost" method.
+
+commit 11e1b0c322ee7926d195eb5c899b4fd7b9875ec8
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 20:06:46 2017 +1000
+
+    Finished Customer Class: added private helper methods, fixed exception conditions to match specifications, improved code formatting
+
+commit 9d901bd0304f8791e94557de3060a7077abae9f2
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:03:25 2017 +1000
+
+    Changes to Pizza Constructor and "calculateCostPerPizza" method, Implemented "getCostPerPizza" method.
+
+commit 18f47bcf00cb8db906b4331c40f7bcb237cd8bd0
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 20:00:14 2017 +1000
+
+    Implemented "calculateCostPerPizza" method
+
+commit 76f38539b217c4ff634eaf499a59e6a48ff1d7f5
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:48:49 2017 +1000
+
+    Implemented MargheritaPizza Constructor
+
+commit 1ab5851fa9f29be84aef54bfa1d902e448d37e03
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:42:24 2017 +1000
+
+    Changed Pizza Constructor
+
+commit 91f44287120a5d5e314035c2242de8af52097fce
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:16:51 2017 +1000
+
+    Fixed pizza type in Pizza constructor, implemented "getPizzaType" method.
+
+commit eabefb27285310eca6d662721324c36babbaab46
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:10:49 2017 +1000
+
+    Implemented "getQuantity" method
+
+commit 75076ff138926cdc34a5bb8d78ad1f9850205cb4
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 19:09:17 2017 +1000
+
+    Changes to Pizza constructor, additional member variable "m_Toppings", and "containsTopping" method implemented.
+
+commit 074502e292efaa164d6cbf6e26d197ff79692f39
+Author: George <george-land@hotmail.com>
+Date:   Sat May 13 18:54:21 2017 +1000
+
+    Completed getPricePerPizza method
+
+commit 8a7a13ea35ffdf8d57fd4720c410b36f02638714
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 16:05:06 2017 +1000
+
+    Added return values to functions, fixed code format to align with set conventions
+
+commit 98d8fcbb3c4e90130bdb9108a9b1d8c3fcad5884
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sat May 13 15:56:46 2017 +1000
+
+    Implemented customer constructor with accompanying private variables
+
+commit 58338578372b32ee7e7dbd34945f93722e5e96d0
+Author: George <george-land@hotmail.com>
+Date:   Wed May 10 20:02:41 2017 +1000
+
+    Implemented: Pizza class constructor & Pizza member variables
+
+commit 2f12e8f8e39a1b7d07436efeb91fa6b52b7a9b8e
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Sun May 7 03:08:15 2017 +1000
+
+    Updated to latest pre-existing code from https://bitbucket.org/cab302/asgn2
+
+commit 8cdf59008793caeb9c80a67f1b3bb3d2a3e82b8f
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 18:26:58 2017 +1000
+
+    Uploaded Pre-Existing Code from https://bitbucket.org/cab302/asgn2
+
+commit bacb1ab5f7726685c4db07a59d654032479c5b1b
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 08:05:01 2017 +0000
+
+    README.md edited online with Bitbucket
+
+commit 9703e48d1fa5c600efee2eae5679766d85a24b48
+Author: Ari Luangamath <ari1@live.com.au>
+Date:   Mon May 1 08:00:23 2017 +0000
+
+    README.md created online with Bitbucket
