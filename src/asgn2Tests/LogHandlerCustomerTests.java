@@ -12,7 +12,7 @@ import asgn2Exceptions.LogHandlerException;
 /**
  * A class that tests the methods relating to the creation of Customer objects in the asgn2Restaurant.LogHander class.
  *
- * @author George Delosa
+ * @author George Delosa (n9751696)
  */
 public class LogHandlerCustomerTests {
 	// TO DO

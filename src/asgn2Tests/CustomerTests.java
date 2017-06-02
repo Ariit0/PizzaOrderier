@@ -17,7 +17,7 @@ import asgn2Exceptions.CustomerException;
  * asgn2Customers.DroneDeliveryCustomer classes. Note that an instance of asgn2Customers.DriverDeliveryCustomer 
  * should be used to test the functionality of the  asgn2Customers.Customer abstract class. 
  * 
- * @author George Delosa
+ * @author George Delosa (n9751696)
  * 
  *
  */

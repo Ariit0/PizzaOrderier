@@ -9,7 +9,7 @@ import asgn2Exceptions.PizzaException;
 
 /** A class that tests the methods relating to the creation of Pizza objects in the asgn2Restaurant.LogHander class.
 * 
-* @author Ari Luangamath
+* @author Ari Luangamath (n9446826)
 * 
 */
 public class LogHandlerPizzaTests {

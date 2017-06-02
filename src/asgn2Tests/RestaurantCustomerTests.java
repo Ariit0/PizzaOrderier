@@ -14,7 +14,7 @@ import asgn2Restaurant.PizzaRestaurant;
  * A class that that tests the methods relating to the handling of Customer objects in the asgn2Restaurant.PizzaRestaurant
  * class as well as processLog and resetDetails.
  * 
- * @author George Delosa
+ * @author George Delosa (n9751696)
  */
 public class RestaurantCustomerTests {
 PizzaRestaurant pizzaRestaurant;

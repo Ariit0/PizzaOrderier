@@ -18,7 +18,7 @@ import asgn2Pizzas.PizzaTopping;
  * Note that an instance of asgn2Pizzas.MeatLoversPizza should be used to test the functionality of the 
  * asgn2Pizzas.Pizza abstract class. 
  * 
- * @author Ari Luangamath
+ * @author Ari Luangamath (n9446826)
  *
  */
 public class PizzaTests {
